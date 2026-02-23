@@ -8,11 +8,8 @@
     <style>
         :root { --primary: #ffffff; --bg: #000000; --accent: #333333; }
         body { 
-            background-color: var(--bg); 
-            color: var(--primary); 
-            font-family: 'Playfair Display', serif; 
-            margin: 0; padding: 20px; text-align: center;
-            /* Protección visual: evita que seleccionen texto */
+            background-color: var(--bg); color: var(--primary); 
+            font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center;
             -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 5px; text-transform: uppercase; }
@@ -24,8 +21,13 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(30%); transition: 0.3s; pointer-events: none; }
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        .contact-mail { color: #ffffff; text-decoration: none; font-size: 1.2em; letter-spacing: 2px; transition: 0.3s; -webkit-user-select: auto; user-select: auto; }
-        .contact-mail:hover { color: #888; }
+        
+        /* Estilo del Botón de Contacto */
+        .contact-link { 
+            color: #ffffff; text-decoration: none; font-size: 1.5em; 
+            letter-spacing: 5px; transition: 0.3s; font-weight: bold;
+        }
+        .contact-link:hover { color: #888; letter-spacing: 7px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -48,13 +50,13 @@
     </div>
 
     <footer style="margin-top: 100px; padding-bottom: 50px; color: #555; font-size: 0.9em;">
-        <p style="margin-bottom: 15px; letter-spacing: 2px;">CONTACTO</p>
-        <a href="mailto:mendozavoiceover@gmail.com" class="contact-mail">mendozavoiceover@gmail.com</a>
+        <a href="mailto:mendozavoiceover@gmail.com" class="contact-link">CONTACTO</a>
         <br><br><br>
         &copy; 2026 Jorge Mendoza - Todos los derechos reservados
     </footer>
 
     <script>
+        // Bloqueo de teclas de inspección
         document.onkeydown = function(e) {
             if(e.keyCode == 123) return false;
             if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
