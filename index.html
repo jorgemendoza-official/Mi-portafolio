@@ -14,20 +14,30 @@
         }
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 5px; text-transform: uppercase; }
         .subtitle { letter-spacing: 8px; font-size: 0.9em; text-transform: uppercase; margin-bottom: 40px; color: #888; }
+        
+        /* Contenedor de Videos */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        /* Galería de Fotos */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid var(--accent); padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(30%); transition: 0.3s; pointer-events: none; }
+        .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(30%); transition: 0.3s; cursor: zoom-in; }
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        
+
         /* Estilo del Botón de Contacto */
-        .contact-link { 
-            color: #ffffff; text-decoration: none; font-size: 1.5em; 
-            letter-spacing: 5px; transition: 0.3s; font-weight: bold;
-        }
+        .contact-link { color: #ffffff; text-decoration: none; font-size: 1.5em; letter-spacing: 5px; transition: 0.3s; font-weight: bold; }
         .contact-link:hover { color: #888; letter-spacing: 7px; }
+
+        /* EFECTO ZOOM (LIGHTBOX) */
+        .lightbox {
+            display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); align-items: center; justify-content: center; cursor: zoom-out;
+        }
+        .lightbox img { max-width: 90%; max-height: 80%; border: 2px solid #333; box-shadow: 0 0 20px rgba(255,255,255,0.1); transform: scale(0.8); transition: 0.3s ease; }
+        .lightbox.active { display: flex; }
+        .lightbox.active img { transform: scale(1); }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -46,7 +56,14 @@
 
     <div class="gallery-title">Galería</div>
     <div class="gallery-grid">
-        <img src="Photos/FOTO 1.webp"><img src="Photos/FOTO 2.webp"><img src="Photos/FOTO 3.webp"><img src="Photos/FOTO 4.webp">
+        <img src="Photos/FOTO 1.webp" onclick="openLightbox(this.src)">
+        <img src="Photos/FOTO 2.webp" onclick="openLightbox(this.src)">
+        <img src="Photos/FOTO 3.webp" onclick="openLightbox(this.src)">
+        <img src="Photos/FOTO 4.webp" onclick="openLightbox(this.src)">
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="">
     </div>
 
     <footer style="margin-top: 100px; padding-bottom: 50px; color: #555; font-size: 0.9em;">
@@ -56,6 +73,18 @@
     </footer>
 
     <script>
+        // Funciones para el Zoom de Fotos
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            lbImg.src = src;
+            lb.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
         // Bloqueo de teclas de inspección
         document.onkeydown = function(e) {
             if(e.keyCode == 123) return false;
