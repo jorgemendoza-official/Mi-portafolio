@@ -1,50 +1,148 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Naranjo - Video Book</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Jorge Naranjo - Actor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #ffffff; --bg: #000000; --accent: #333333; }
+        :root { --primary: #ffffff; --bg: #000000; --accent: #444444; }
+        
         body { 
-            background-color: var(--bg); color: var(--primary); 
-            font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center;
-            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+            background-color: var(--bg); 
+            color: var(--primary); 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            text-align: center;
+            -webkit-user-select: none; 
+            user-select: none;
         }
-        h1 { font-style: italic; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 5px; text-transform: uppercase; }
-        .subtitle { letter-spacing: 8px; font-size: 0.9em; text-transform: uppercase; margin-bottom: 40px; color: #888; }
-        
-        /* Contenedor de Videos */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
-        .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; }
-        .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        
-        /* Galería de Fotos */
-        .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid var(--accent); padding-top: 40px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(30%); transition: 0.3s; cursor: zoom-in; }
-        .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-        /* Estilo del Botón de Contacto */
-        .contact-link { color: #ffffff; text-decoration: none; font-size: 1.5em; letter-spacing: 5px; transition: 0.3s; font-weight: bold; }
-        .contact-link:hover { color: #888; letter-spacing: 7px; }
+        h1 { 
+            font-family: 'Cinzel', serif; 
+            letter-spacing: 6px; 
+            font-size: 3em; 
+            margin-bottom: 5px; 
+            text-transform: uppercase; 
+            font-weight: 700; 
+        }
 
-        /* EFECTO ZOOM (LIGHTBOX) */
+        .subtitle { 
+            letter-spacing: 10px; 
+            font-size: 0.85em; 
+            text-transform: uppercase; 
+            margin-bottom: 50px; 
+            color: #aaa; 
+            font-weight: 300; 
+        }
+        
+        /* Cuadrícula de Videos */
+        .video-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: 0 auto 60px; 
+        }
+
+        .video-item { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            background: #0a0a0a; 
+            border: 1px solid #222; 
+            border-radius: 2px; 
+        }
+
+        .video-item iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
+        
+        /* Sección de Fotos */
+        .gallery-title { 
+            font-family: 'Cinzel', serif; 
+            font-size: 2em; 
+            margin: 60px 0 30px; 
+            border-top: 1px solid var(--accent); 
+            padding-top: 40px; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+        }
+
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 15px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .gallery-grid img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            filter: grayscale(100%); 
+            transition: 0.5s ease; 
+            cursor: zoom-in; 
+        }
+
+        .gallery-grid img:hover { 
+            filter: grayscale(0%); 
+            transform: scale(1.01); 
+        }
+
+        /* Enlace de Contacto Estilizado */
+        .contact-link { 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-size: 1.4em; 
+            letter-spacing: 4px; 
+            transition: 0.4s; 
+            font-family: 'Cinzel', serif; 
+            border-bottom: 1px solid transparent; 
+        }
+
+        .contact-link:hover { 
+            color: #aaa; 
+            border-bottom: 1px solid #aaa; 
+        }
+
+        /* Pantalla de Zoom para Fotos */
         .lightbox {
-            display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); align-items: center; justify-content: center; cursor: zoom-out;
+            display: none; 
+            position: fixed; 
+            z-index: 10000; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: rgba(0,0,0,0.95); 
+            align-items: center; 
+            justify-content: center; 
+            cursor: zoom-out;
         }
-        .lightbox img { max-width: 90%; max-height: 80%; border: 2px solid #333; box-shadow: 0 0 20px rgba(255,255,255,0.1); transform: scale(0.8); transition: 0.3s ease; }
+
+        .lightbox img { 
+            max-width: 90%; 
+            max-height: 85%; 
+            border: 1px solid #444; 
+            transition: 0.3s ease; 
+        }
+
         .lightbox.active { display: flex; }
-        .lightbox.active img { transform: scale(1); }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
     <h1>Jorge Naranjo</h1>
-    <p class="subtitle">VIDEO-BOOK</p>
+    <p class="subtitle">Actor | Performance | Reel</p>
 
     <div class="video-grid">
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166571898?badge=0&autopause=0&title=0&byline=0&portrait=0"></iframe></div>
@@ -55,7 +153,7 @@
         <div class="video-item"><iframe src="https://drive.google.com/file/d/1dsYNvQgQy_CdlE4k8gptw1CdzDMOPykR/preview"></iframe></div>
     </div>
 
-    <div class="gallery-title">Galería</div>
+    <div class="gallery-title">Retratos</div>
     <div class="gallery-grid">
         <img src="Photos/FOTO 1.webp" onclick="openLightbox(this.src)">
         <img src="Photos/FOTO 2.webp" onclick="openLightbox(this.src)">
@@ -67,14 +165,14 @@
         <img id="lightbox-img" src="">
     </div>
 
-    <footer style="margin-top: 100px; padding-bottom: 50px; color: #555; font-size: 0.9em;">
-        <a href="mailto:mendozavoiceover@gmail.com" class="contact-link">CONTACTO</a>
+    <footer style="margin-top: 100px; padding-bottom: 60px;">
+        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-link">CONTACTAR ACTOR</a>
         <br><br><br>
-        &copy; 2026 Jorge Naranjo - Todos los derechos reservados
+        <p style="color: #444; font-size: 0.75em; letter-spacing: 2px;">&copy; 2026 JORGE NARANJO - TALENTO ACTORAL</p>
     </footer>
 
     <script>
-        // Funciones para el Zoom de Fotos
+        // Función para abrir la foto en grande
         function openLightbox(src) {
             const lb = document.getElementById('lightbox');
             const lbImg = document.getElementById('lightbox-img');
@@ -82,15 +180,14 @@
             lb.classList.add('active');
         }
 
+        // Función para cerrar la foto
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
 
-        // Bloqueo de teclas de inspección
+        // Bloqueo de seguridad para proteger tu código
         document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false;
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+            if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) return false;
         }
     </script>
 </body>
