@@ -13,20 +13,21 @@
         
         .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 20px; }
-        .item-card { background: #111; border: 1px solid #222; transition: 0.3s; overflow: hidden; }
-        .item-card:hover { border-color: #555; transform: translateY(-5px); }
+        /* GRID DE 11 ELEMENTOS (6 VIDEOS + 5 FOTOS) */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 20px; }
+        .portfolio-item { background: #111; border: 1px solid #222; transition: 0.4s ease; overflow: hidden; }
+        .portfolio-item:hover { border-color: #777; transform: translateY(-5px); }
         
-        .item-card iframe, .item-card img { width: 100%; aspect-ratio: 16/9; border: none; object-fit: cover; display: block; }
+        .portfolio-item iframe, .portfolio-item img { width: 100%; aspect-ratio: 16/9; border: none; object-fit: cover; display: block; }
         
-        .info { padding: 20px; text-align: left; }
-        .title { font-family: 'Cinzel', serif; font-size: 0.9em; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
-        .desc { font-size: 0.75em; color: #666; margin-top: 8px; line-height: 1.5; }
+        .item-details { padding: 20px; text-align: left; }
+        .item-title { font-family: 'Cinzel', serif; font-size: 0.9em; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+        .item-desc { font-size: 0.75em; color: #666; margin-top: 8px; line-height: 1.5; }
 
-        .contact-link { display: inline-block; margin-top: 60px; padding: 18px 45px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 3px; font-size: 0.8em; transition: 0.4s; text-transform: uppercase; }
-        .contact-link:hover { background: #fff; color: #000; }
+        .btn-contact { display: inline-block; margin-top: 60px; padding: 20px 50px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 4px; font-size: 0.8em; transition: 0.4s; text-transform: uppercase; }
+        .btn-contact:hover { background: #fff; color: #000; }
         
-        footer { margin-top: 100px; padding-bottom: 60px; border-top: 1px solid #1a1a1a; padding-top: 40px; }
+        footer { margin-top: 100px; padding: 60px 20px; border-top: 1px solid #1a1a1a; }
     </style>
 </head>
 <body>
@@ -37,93 +38,93 @@
     </header>
 
     <div class="main-container">
-        <div class="video-grid">
+        <div class="portfolio-grid">
             
-            <div class="item-card">
+            <div class="portfolio-item">
                 <iframe src="https://player.vimeo.com/video/1174518952" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                <div class="info">
-                    <div class="title">REEL ACTORAL 2026</div>
-                    <div class="desc">Muestra principal de interpretación y registro dramático.</div>
+                <div class="item-details">
+                    <div class="item-title">ACTOR REEL 2026</div>
+                    <div class="item-desc">Muestra principal de interpretación y registro actoral.</div>
                 </div>
             </div>
 
-            <div class="item-card">
+            <div class="portfolio-item">
                 <img src="foto1.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">HEADSHOT I</div>
-                    <div class="desc">Retrato de estudio - Perfil cinematográfico.</div>
+                <div class="item-details">
+                    <div class="item-title">HEADSHOT I</div>
+                    <div class="item-desc">Retrato de estudio - Perfil cinematográfico.</div>
                 </div>
             </div>
 
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO PROCESANDO</div>
-                <div class="info">
-                    <div class="title">ESCENA: DRAMA</div>
-                    <div class="desc">Clip de interpretación en escena de tensión.</div>
+            <div class="portfolio-item">
+                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 2</div>
+                <div class="item-details">
+                    <div class="item-title">ESCENA: DRAMA</div>
+                    <div class="item-desc">Interpretación de personaje en tensión dramática.</div>
                 </div>
             </div>
 
-            <div class="item-card">
+            <div class="portfolio-item">
                 <img src="foto2.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">HEADSHOT II</div>
-                    <div class="desc">Expresión y registro actoral.</div>
+                <div class="item-details">
+                    <div class="item-title">HEADSHOT II</div>
+                    <div class="item-desc">Registro expresivo y mirada.</div>
                 </div>
             </div>
 
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="info">
-                    <div class="title">SLATE 2026</div>
-                    <div class="desc">Presentación bilingüe y perfil físico.</div>
+            <div class="portfolio-item">
+                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 3</div>
+                <div class="item-details">
+                    <div class="item-title">SLATE 2026</div>
+                    <div class="item-desc">Presentación bilingüe y datos físicos.</div>
                 </div>
             </div>
 
-            <div class="item-card">
+            <div class="portfolio-item">
                 <img src="foto3.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">PERFORMANCE TANGO</div>
-                    <div class="desc">Muestra de movimiento y danza dramática.</div>
+                <div class="item-details">
+                    <div class="item-title">PERFORMANCE TANGO</div>
+                    <div class="item-desc">Muestra de movimiento y danza.</div>
                 </div>
             </div>
 
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="info">
-                    <div class="title">REGISTRO COMEDIA</div>
-                    <div class="desc">Versatilidad en géneros y tonos ligeros.</div>
+            <div class="portfolio-item">
+                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 4</div>
+                <div class="item-details">
+                    <div class="item-title">COMEDIA REEL</div>
+                    <div class="item-desc">Versatilidad en géneros ligeros.</div>
                 </div>
             </div>
 
-            <div class="item-card">
+            <div class="portfolio-item">
                 <img src="foto4.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">CARACTERIZACIÓN</div>
-                    <div class="desc">Transformación de personaje y vestuario.</div>
+                <div class="item-details">
+                    <div class="item-title">CARACTERIZACIÓN</div>
+                    <div class="item-desc">Transformación de personaje.</div>
                 </div>
             </div>
 
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="info">
-                    <div class="title">DEMO VOICE-OVER</div>
-                    <div class="desc">Locución narrativa y comercial.</div>
+            <div class="portfolio-item">
+                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 5</div>
+                <div class="item-details">
+                    <div class="item-title">VOICE OVER DEMO</div>
+                    <div class="item-desc">Locución narrativa y comercial.</div>
                 </div>
             </div>
 
-            <div class="item-card">
+            <div class="portfolio-item">
                 <img src="foto5.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">EXTERIORES</div>
-                    <div class="desc">Sesión con luz natural.</div>
+                <div class="item-details">
+                    <div class="item-title">EXTERIORES</div>
+                    <div class="item-desc">Retrato con luz natural.</div>
                 </div>
             </div>
 
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="info">
-                    <div class="title">FILM SHORTS</div>
-                    <div class="desc">Selección de cortometrajes y proyectos.</div>
+            <div class="portfolio-item">
+                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 6</div>
+                <div class="item-details">
+                    <div class="item-title">SHORT FILMS</div>
+                    <div class="item-desc">Selección de proyectos cinematográficos.</div>
                 </div>
             </div>
 
@@ -131,7 +132,7 @@
     </div>
 
     <footer>
-        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-link">CONTACTAR ACTOR</a>
+        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="btn-contact">CONTACTAR ACTOR</a>
         <p style="color: #444; font-size: 0.75em; letter-spacing: 2px; margin-top: 40px;">&copy; 2026 JORGE NARANJO - TALENTO ACTORAL</p>
     </footer>
 
