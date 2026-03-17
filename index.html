@@ -20,23 +20,36 @@
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; border: 1px solid #222; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* FICHA TÉCNICA (SLATE EN TEXTO) */
+        /* --- AJUSTES DE VISIBILIDAD FICHA TÉCNICA --- */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: #121212; padding: 10px; cursor: pointer; transition: 0.3s;
+            background: #121212; padding: 15px; cursor: pointer; transition: 0.3s;
         }
         .slate-card:hover { background: #1a1a1a; border: 1px solid #555; }
-        .slate-title { font-size: 0.75em; letter-spacing: 3px; color: #888; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 5px; width: 90%; text-transform: uppercase; }
-        .slate-container { display: flex; width: 95%; gap: 15px; justify-content: center; }
+        
+        .slate-title { 
+            font-size: 0.85em; /* Aumentado */
+            letter-spacing: 3px; color: #aaa; margin-bottom: 15px; 
+            border-bottom: 1px solid #333; padding-bottom: 8px; width: 90%; text-transform: uppercase; 
+        }
+        
+        .slate-container { display: flex; width: 95%; gap: 20px; justify-content: center; }
         .slate-column { width: 48%; }
-        .slate-table { width: 100%; font-size: 0.58em; text-align: left; border-collapse: collapse; }
-        .slate-table td { padding: 2px 0; border-bottom: 1px solid #1a1a1a; }
-        .slate-label { color: #666; font-style: italic; }
-        .slate-value { color: #fff; text-align: right; font-weight: bold; }
-        .nationality-tag { font-size: 0.45em; color: #444; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+        
+        .slate-table { width: 100%; font-size: 0.70em; /* Aumentado de 0.58 a 0.70 */ text-align: left; border-collapse: collapse; }
+        .slate-table td { padding: 4px 0; border-bottom: 1px solid #222; }
+        
+        .slate-label { color: #888; font-style: italic; }
+        .slate-value { color: #fff; text-align: right; font-weight: bold; letter-spacing: 0.5px; }
+        
+        .nationality-tag { 
+            font-size: 0.55em; /* Aumentado */
+            color: #666; margin-top: 15px; letter-spacing: 1.5px; text-transform: uppercase; 
+            font-weight: bold;
+        }
 
-        /* MODAL EXPANSIÓN */
+        /* MODAL EXPANSIÓN (Asegurando que se vea grande al hacer clic) */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 90%; border: 1px solid #fff; display: none; }
         #modal-slate-content { 
@@ -44,6 +57,9 @@
             border-radius: 8px; width: 95%; max-width: 850px; text-align: center; 
         }
         #modal-slate-content .slate-container { display: flex !important; flex-direction: row !important; gap: 50px !important; }
+        #modal-slate-content .slate-table { font-size: 1.1em; } /* Muy legible en modal */
+        #modal-slate-content .slate-title { font-size: 1.5em; }
+        #modal-slate-content .nationality-tag { font-size: 0.9em; }
 
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
