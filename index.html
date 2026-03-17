@@ -20,7 +20,7 @@
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; border: 1px solid #222; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* FICHA TÉCNICA - DISEÑO JORGE NARANJO */
+        /* FICHA TÉCNICA (SLATE EN TEXTO) */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -28,7 +28,6 @@
         }
         .slate-card:hover { background: #1a1a1a; border: 1px solid #555; }
         .slate-title { font-size: 0.75em; letter-spacing: 3px; color: #888; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 5px; width: 90%; text-transform: uppercase; }
-        
         .slate-container { display: flex; width: 95%; gap: 15px; justify-content: center; }
         .slate-column { width: 48%; }
         .slate-table { width: 100%; font-size: 0.60em; text-align: left; border-collapse: collapse; }
@@ -37,19 +36,14 @@
         .slate-value { color: #fff; text-align: right; font-weight: bold; }
         .nationality-tag { font-size: 0.50em; color: #444; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* MODAL DE EXPANSIÓN */
+        /* MODAL EXPANSIÓN */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 90%; border: 1px solid #fff; display: none; }
-        
         #modal-slate-content { 
             display: none; background: #121212; padding: 40px; border: 2px solid #fff; 
             border-radius: 8px; width: 95%; max-width: 850px; text-align: center; 
         }
-        #modal-slate-content .slate-title { font-size: 1.6em; margin-bottom: 30px; width: 100%; }
-        #modal-slate-content .slate-table { font-size: 1.1em; }
-        #modal-slate-content .slate-table td { padding: 8px 0; }
         #modal-slate-content .slate-container { display: flex !important; flex-direction: row !important; gap: 50px !important; }
-        #modal-slate-content .nationality-tag { font-size: 0.9em; margin-top: 25px; color: #666; }
 
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -61,14 +55,12 @@
 <body oncontextmenu="return false;">
 
     <h1>Jorge Naranjo</h1>
-    <p class="subtitle">VIDEO-BOOK</p>
+    <p class="subtitle">PERFIL ACTORAL</p>
 
     <div class="video-grid">
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/1174518952?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166571898?title=0&byline=0&portrait=0"></iframe></div>
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572058?title=0&byline=0&portrait=0"></iframe></div>
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572097?title=0&byline=0&portrait=0"></iframe></div>
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166560186?title=0&byline=0&portrait=0"></iframe></div>
+        <div class="video-item">
+            <iframe src="https://player.vimeo.com/video/1174518952?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe>
+        </div>
 
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card" id="main-slate">
@@ -80,22 +72,23 @@
                             <tr><td class="slate-label">Peso:</td><td class="slate-value">67.5 kg</td></tr>
                             <tr><td class="slate-label">Ojos:</td><td class="slate-value">Verdes</td></tr>
                             <tr><td class="slate-label">Piel:</td><td class="slate-value">Trigueña</td></tr>
-                            <tr><td class="slate-label">Cabello:</td><td class="slate-value">Café Oscuro</td></tr>
                         </table>
                     </div>
                     <div class="slate-column">
                         <table class="slate-table">
-                            <tr><td class="slate-label">Camisa:</td><td class="slate-value">M</td></tr>
                             <tr><td class="slate-label">Pantalón:</td><td class="slate-value">29-30</td></tr>
-                            <tr><td class="slate-label">Calzado:</td><td class="slate-value">39 EU</td></tr>
+                            <tr><td class="slate-label">Camisa:</td><td class="slate-value">M</td></tr>
                             <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
                             <tr><td class="slate-label">Cintura:</td><td class="slate-value">75 cm</td></tr>
                         </table>
                     </div>
                 </div>
-                <div class="nationality-tag">Nacionalidad: Colombo-Canadiense</div>
+                <div class="nationality-tag">Colombo-Canadiense</div>
             </div>
         </div>
+
+        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166571898?title=0&byline=0&portrait=0"></iframe></div>
+        <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572058?title=0&byline=0&portrait=0"></iframe></div>
     </div>
 
     <div class="gallery-title">Galería</div>
