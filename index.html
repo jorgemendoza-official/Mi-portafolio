@@ -3,136 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Naranjo | Actor</title>
+    <title>Jorge Naranjo | Actor Portafolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; text-align: center; }
-        header { padding: 80px 20px; }
-        h1 { font-family: 'Cinzel', serif; font-size: 3.5em; letter-spacing: 8px; margin: 0; color: #fff; }
-        .subtitle { font-size: 1em; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 10px; }
+        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; text-align: center; }
+        header { padding: 60px 20px; border-bottom: 1px solid #222; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3em; letter-spacing: 5px; margin: 0; color: #fff; }
+        .subtitle { font-size: 0.9em; letter-spacing: 3px; color: #888; text-transform: uppercase; margin-top: 10px; }
         
-        .main-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 20px; }
-        .item-card { background: #111; border: 1px solid #222; transition: 0.3s; overflow: hidden; }
-        .item-card:hover { border-color: #555; transform: translateY(-5px); }
-        
-        .item-card iframe, .item-card img { width: 100%; aspect-ratio: 16/9; border: none; object-fit: cover; display: block; }
-        
-        .info { padding: 15px; text-align: left; }
-        .title { font-family: 'Cinzel', serif; font-size: 0.9em; color: #fff; letter-spacing: 1px; }
-        .desc { font-size: 0.75em; color: #666; margin-top: 5px; line-height: 1.4; }
+        /* Contenedor de Videos */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 40px; max-width: 1200px; margin: 0 auto; }
+        .video-card { background: #111; padding-bottom: 15px; border-radius: 4px; overflow: hidden; transition: 0.3s; }
+        .video-card:hover { transform: scale(1.02); }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        .video-info { padding: 15px; text-align: left; }
+        .video-title { font-family: 'Cinzel', serif; font-size: 1.1em; color: #fff; margin-bottom: 5px; }
+        .video-desc { font-size: 0.8em; color: #aaa; line-height: 1.4; }
 
-        .contact-link { display: inline-block; margin-top: 60px; padding: 18px 45px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 3px; font-size: 0.8em; transition: 0.4s; }
+        .contact-link { display: inline-block; margin-top: 50px; padding: 15px 40px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 2px; transition: 0.3s; }
         .contact-link:hover { background: #fff; color: #000; }
         
-        footer { margin-top: 100px; padding-bottom: 60px; }
+        footer { margin-top: 100px; padding-bottom: 60px; border-top: 1px solid #222; padding-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>JORGE NARANJO</h1>
-        <div class="subtitle">Actor | Performance | Reel</div>
+        <div class="subtitle">Actor | Performance | Bilingüe</div>
     </header>
 
-    <div class="main-container">
-        <div class="video-grid">
-            
-            <div class="item-card">
-                <iframe src="https://player.vimeo.com/video/1174518952" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                <div class="info">
-                    <div class="title">REEL ACTORAL 2026</div>
-                    <div class="desc">Muestra principal de capacidades interpretativas y registro bilingüe.</div>
-                </div>
+    <section class="video-grid">
+        <div class="video-card">
+            <iframe src="https://player.vimeo.com/video/1173808512?h=362d852174" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-info">
+                <div class="video-title">ESCENA: ANTAGONISTA / DRAMA</div>
+                <div class="video-desc">Clip actoral de Jorge Naranjo. Rol: Antagonista. Escena de interrogatorio y poder. Idioma: Español/Inglés (bilingüe). Una muestra de capacidad interpretativa en géneros de drama y thriller.</div>
             </div>
-
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 2</div>
-                <div class="info">
-                    <div class="title">ESCENA: ANTAGONISTA</div>
-                    <div class="desc">Clip de drama y suspenso.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <img src="headshot1.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">HEADSHOT PRINCIPAL</div>
-                    <div class="desc">Fotografía de estudio - Perfil cinematográfico.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 3</div>
-                <div class="info">
-                    <div class="title">SLATE 2026</div>
-                    <div class="desc">Presentación y perfil actual.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <img src="tango.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">PERFORMANCE TANGO</div>
-                    <div class="desc">Muestra de expresión corporal y danza dramática.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 4</div>
-                <div class="info">
-                    <div class="title">REGISTRO COMEDIA</div>
-                    <div class="desc">Muestra de versatilidad en géneros ligeros.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <img src="personaje1.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">CARACTERIZACIÓN</div>
-                    <div class="desc">Transformación física para personaje específico.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 5</div>
-                <div class="info">
-                    <div class="title">VOICE-OVER REEL</div>
-                    <div class="desc">Locución institucional y narrativa.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <img src="exteriores.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">LOOK NATURAL</div>
-                    <div class="desc">Fotografía en exteriores - Luz natural.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">VIDEO 6</div>
-                <div class="info">
-                    <div class="title">FILM SHORTS</div>
-                    <div class="desc">Selección de proyectos cinematográficos independientes.</div>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <img src="accion.jpg" alt="Jorge Naranjo">
-                <div class="info">
-                    <div class="title">ACCIÓN / MOVIMIENTO</div>
-                    <div class="desc">Fotografía dinámica de performance.</div>
-                </div>
-            </div>
-
         </div>
-    </div>
+
+        <div class="video-card">
+            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: #222; color: #555;">Esperando nuevo video...</div>
+            <div class="video-info">
+                <div class="video-title">SLATE 2026</div>
+                <div class="video-desc">Presentación de perfil y datos actuales de Jorge Naranjo.</div>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: #222; color: #555;">Esperando nuevo video...</div>
+            <div class="video-info">
+                <div class="video-title">DEMO REEL ADICIONAL</div>
+                <div class="video-desc">Muestra complementaria de registro actoral.</div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-link">CONTACTAR ACTOR</a>
-        <p style="color: #444; font-size: 0.75em; letter-spacing: 2px; margin-top: 40px;">&copy; 2026 JORGE NARANJO - TALENTO ACTORAL</p>
+        <a href="mailto:contacto.jorgenaranjo@gmail.com?subject=Contacto%20Casting%20-%20Jorge%20Naranjo" class="contact-link">CONTACTAR ACTOR</a>
+        <br><br><br>
+        <p style="color: #444; font-size: 0.75em; letter-spacing: 2px;">&copy; 2026 JORGE NARANJO - TALENTO ACTORAL</p>
     </footer>
 
 </body>
