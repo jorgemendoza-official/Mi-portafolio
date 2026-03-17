@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,61 +11,74 @@
         h1 { font-family: 'Cinzel', serif; font-size: 3.5em; letter-spacing: 8px; margin: 0; color: #fff; }
         .subtitle { font-size: 1em; letter-spacing: 4px; color: #888; text-transform: uppercase; margin-top: 10px; }
         
-        .video-container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .main-content { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        /* VIDEO PRINCIPAL - PRIORIDAD NÚMERO 1 */
-        .video-main { width: 100%; aspect-ratio: 16/9; margin-bottom: 40px; border: 1px solid #333; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        /* VIDEO PRINCIPAL - EL REEL DE HOY */
+        .featured-video { width: 100%; aspect-ratio: 16/9; margin-bottom: 50px; border: 1px solid #333; background: #000; box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
-        .video-item { background: #111; border: 1px solid #222; transition: 0.3s; }
-        .video-item:hover { border-color: #555; }
-        .video-item iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        /* CUADRÍCULA PARA FOTOS Y VIDEOS SECUNDARIOS */
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
         
-        .video-info { padding: 15px; text-align: left; }
-        .video-title { font-family: 'Cinzel', serif; font-size: 0.9em; color: #fff; letter-spacing: 1px; }
-        .video-desc { font-size: 0.75em; color: #666; margin-top: 5px; line-height: 1.4; }
+        .media-item { background: #111; border: 1px solid #222; overflow: hidden; transition: 0.4s; position: relative; }
+        .media-item:hover { border-color: #777; transform: translateY(-5px); }
+        
+        .media-item img { width: 100%; height: auto; display: block; opacity: 0.8; transition: 0.4s; }
+        .media-item:hover img { opacity: 1; }
+        
+        .media-item iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        
+        .info-panel { padding: 20px; text-align: left; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+        .item-title { font-family: 'Cinzel', serif; font-size: 1em; color: #fff; margin-bottom: 5px; }
+        .item-desc { font-size: 0.8em; color: #777; line-height: 1.5; }
 
-        .contact-link { display: inline-block; margin-top: 60px; padding: 18px 45px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 3px; font-size: 0.8em; transition: 0.4s; }
-        .contact-link:hover { background: #fff; color: #000; }
+        .contact-button { display: inline-block; margin-top: 80px; padding: 20px 50px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 4px; font-size: 0.85em; transition: 0.5s; }
+        .contact-button:hover { background: #fff; color: #000; }
         
-        footer { margin-top: 100px; padding-bottom: 60px; }
+        footer { margin: 100px 0 60px 0; border-top: 1px solid #1a1a1a; padding-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>JORGE NARANJO</h1>
-        <div class="subtitle">Actor | Performance | Reel</div>
+        <div class="subtitle">Actor | Performance | Reel 2026</div>
     </header>
 
-    <div class="video-container">
-        <div class="video-main">
+    <div class="main-content">
+        <div class="featured-video">
             <iframe src="https://player.vimeo.com/video/1174518952" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
 
-        <div class="video-grid">
-            <div class="video-item">
-                <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="video-info">
-                    <div class="video-title">SLATE 2026</div>
-                    <div class="video-desc">Presentación de perfil y datos actuales.</div>
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="tu-foto-headshot.jpg" alt="Jorge Naranjo - Actor">
+                <div class="info-panel">
+                    <div class="item-title">HEADSHOT I</div>
+                    <div class="item-desc">Perfil actoral - Fotografía de estudio.</div>
                 </div>
             </div>
 
-            <div class="video-item">
+            <div class="media-item">
                 <div style="aspect-ratio: 16/9; background: #1a1a1a; display: flex; align-items: center; justify-content: center; color: #444;">PRÓXIMAMENTE</div>
-                <div class="video-info">
-                    <div class="video-title">DEMO ADICIONAL</div>
-                    <div class="video-desc">Muestra de registro actoral y versatilidad.</div>
+                <div class="info-panel">
+                    <div class="item-title">SLATE 2026</div>
+                    <div class="item-desc">Presentación bilingüe y perfil.</div>
+                </div>
+            </div>
+
+            <div class="media-item">
+                <img src="tu-foto-tango.jpg" alt="Jorge Naranjo - Tango">
+                <div class="info-panel">
+                    <div class="item-title">PERFORMANCE</div>
+                    <div class="item-desc">Muestra de movimiento y danza dramática.</div>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-link">CONTACTAR ACTOR</a>
-        <br><br><br>
-        <p style="color: #444; font-size: 0.75em; letter-spacing: 2px;">&copy; 2026 JORGE NARANJO - TALENTO ACTORAL</p>
+        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-button">CONTACTAR ACTOR</a>
+        <p style="color: #333; font-size: 0.7em; letter-spacing: 3px; margin-top: 50px;">&copy; 2026 JORGE NARANJO</p>
     </footer>
 
 </body>
