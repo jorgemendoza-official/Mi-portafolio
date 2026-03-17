@@ -15,70 +15,67 @@
             -webkit-user-select: none; user-select: none;
         }
 
-        h1 { font-style: italic; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 5px; text-transform: uppercase; }
-        .subtitle { letter-spacing: 8px; font-size: 0.9em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
+        h1 { font-style: italic; letter-spacing: 4px; font-size: 2.2em; margin-bottom: 5px; text-transform: uppercase; }
+        .subtitle { letter-spacing: 6px; font-size: 0.8em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 60px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #080808; border-radius: 4px; border: 1px solid #1a1a1a; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- FICHA TÉCNICA PRINCIPAL (SLATE CARD) --- */
+        /* --- TARJETA DE PREVISUALIZACIÓN --- */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             background: linear-gradient(145deg, #0f0f0f, #050505); cursor: pointer; transition: 0.4s ease;
         }
-        .slate-card:hover { background: #000; border: 1px solid #444; }
+        .slate-card:hover { border: 1px solid #444; background: #000; }
+        .slate-header-mini { font-size: 0.7em; letter-spacing: 4px; color: #888; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 5px; width: 85%; }
 
-        .slate-header { font-size: 0.75em; letter-spacing: 5px; color: #888; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 8px; width: 85%; }
+        .data-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 90%; }
+        .mini-val { font-size: 1em; font-weight: bold; color: #fff; }
+        .mini-lbl { font-size: 0.45em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Grid principal de la tarjeta pequeña */
-        .data-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; width: 90%; }
-        .data-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .val { font-size: 1.1em; font-weight: bold; color: #fff; letter-spacing: 1px; }
-        .lbl { font-size: 0.5em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+        /* --- MODAL PANTALLA COMPLETA --- */
+        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
         
-        .footer-tags { margin-top: 25px; font-size: 0.55em; color: #444; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; }
-
-        /* --- MODAL DE PANTALLA COMPLETA --- */
-        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
-        
-        /* Contenedor principal del modal cuando se expande */
-        #modal-slate-content { 
-            display: none; background: #000; padding: 60px; border: 1px solid #333; 
-            border-radius: 8px; width: 90%; max-width: 1000px; /* Ancho máximo aumentado */
-            height: 90vh; /* Alto casi completo */
-            text-align: center; overflow-y: auto; /* Scroll si el contenido es muy largo */
+        #modal-content-wrapper { 
+            position: relative; background: #000; padding: 40px 20px; border: 1px solid #222; 
+            width: 90%; max-width: 900px; height: 85vh; overflow-y: auto; border-radius: 8px;
         }
+
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; color: #fff; cursor: pointer; z-index: 10000; }
+
+        /* Estilos de información expandida */
+        .full-title { font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; color: #fff; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 15px; }
         
-        /* Ajustes de estilo para el modal de pantalla completa */
-        #modal-slate-content .slate-header { font-size: 1.8em; margin-bottom: 50px; }
-        
-        /* Ocultar elementos de la tarjeta pequeña en el modal y mostrar los grandes */
-        #modal-slate-content .data-grid { display: none; }
-        #modal-slate-content .footer-tags { display: none; }
-        #full-slate-info { display: none; } /* Oculto en la tarjeta principal */
+        .full-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .full-item { display: flex; flex-direction: column; align-items: center; }
+        .full-val { font-size: 1.8em; font-weight: bold; color: #fff; }
+        .full-lbl { font-size: 0.7em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
 
-        /* Estilo para los bloques de información expandida en el modal */
-        .info-block { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 50px; text-align: center; }
-        .info-item { display: flex; flex-direction: column; align-items: center; }
-        .info-value { font-size: 2.2em; font-weight: bold; color: #fff; letter-spacing: 1px; }
-        .info-label { font-size: 0.8em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-top: 8px; }
+        .extra-info { text-align: left; max-width: 600px; margin: 0 auto; border-top: 1px solid #111; padding-top: 30px; }
+        .extra-line { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #080808; padding-bottom: 5px; }
+        .extra-lbl { color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; }
+        .extra-val { color: #fff; font-weight: bold; font-size: 1em; text-align: right; }
 
-        /* Estilo para los bloques de texto (cabello, idiomas, etc.) en el modal */
-        .text-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; max-width: 700px; margin: 0 auto; }
-        .text-info-item { display: flex; flex-direction: column; margin-bottom: 10px; }
-        .text-info-val { font-size: 1.2em; font-weight: bold; color: #fff; letter-spacing: 1px; }
-        .text-info-lbl { font-size: 0.7em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+        #modal-image { max-width: 95%; max-height: 90%; display: none; border: 1px solid #333; }
 
-        /* Ajustes para el modal de imagen */
-        #modal-image { max-width: 95%; max-height: 95%; border: 1px solid #fff; display: none; }
-
+        /* Galería */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s ease; cursor: pointer; }
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        .contact-mail { color: #ffffff; text-decoration: none; font-size: 1.2em; letter-spacing: 2px; }
+
+        footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
+        .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            .full-val { font-size: 1.4em; }
+            .extra-line { flex-direction: column; align-items: flex-start; }
+            .extra-val { text-align: left; margin-top: 4px; }
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -94,44 +91,18 @@
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166560186?title=0&byline=0&portrait=0"></iframe></div>
 
         <div class="video-item" onclick="expandSlate()">
-            <div class="slate-card" id="main-slate">
-                <div class="slate-header">Perfil Profesional</div>
-                
-                <div class="data-grid">
-                    <div class="data-item"><span class="val">168</span><span class="lbl">Estatura (cm)</span></div>
-                    <div class="data-item"><span class="val">67.5</span><span class="lbl">Peso (kg)</span></div>
-                    <div class="data-item"><span class="val">Verdes</span><span class="lbl">Ojos</span></div>
-                    <div class="data-item"><span class="val">M</span><span class="lbl">Camisa</span></div>
-                    <div class="data-item"><span class="val">29-30</span><span class="lbl">Pantalón</span></div>
-                    <div class="data-item"><span class="val">39</span><span class="lbl">Calzado (EU)</span></div>
+            <div class="slate-card">
+                <div class="slate-header-mini">Ficha Técnica / Slate</div>
+                <div class="data-grid-mini">
+                    <div><span class="mini-val">168</span><br><span class="mini-lbl">Alt (cm)</span></div>
+                    <div><span class="mini-val">67.5</span><br><span class="mini-lbl">Peso (kg)</span></div>
+                    <div><span class="mini-val">Verdes</span><br><span class="mini-lbl">Ojos</span></div>
+                    <div><span class="mini-val">M</span><br><span class="mini-lbl">Camisa</span></div>
+                    <div><span class="mini-val">29-30</span><br><span class="mini-lbl">Pant</span></div>
+                    <div><span class="mini-val">39</span><br><span class="mini-lbl">Zap</span></div>
                 </div>
-
-                <div class="footer-tags">
-                    Colombo-Canadiense — Pecho: 106cm — Cintura: 75cm — Cadera: 92cm
-                </div>
-
-                <div id="full-slate-info">
-                    <div class="info-block">
-                        <div class="info-item"><span class="info-value">168</span><span class="info-label">Estatura (cm)</span></div>
-                        <div class="info-item"><span class="info-value">67.5</span><span class="info-label">Peso (kg)</span></div>
-                        <div class="info-item"><span class="info-value">Verdes</span><span class="info-label">Ojos</span></div>
-                        <div class="info-item"><span class="info-value">39</span><span class="info-label">Calzado (EU)</span></div>
-                        <div class="info-item"><span class="info-value">M</span><span class="info-label">Camisa</span></div>
-                        <div class="info-item"><span class="info-value">29-30</span><span class="info-label">Pantalón</span></div>
-                        <div class="info-item"><span class="info-value">106</span><span class="info-label">Pecho (cm)</span></div>
-                        <div class="info-item"><span class="info-value">75</span><span class="info-label">Cintura (cm)</span></div>
-                        <div class="info-item"><span class="info-value">92</span><span class="info-label">Cadera (cm)</span></div>
-                    </div>
-
-                    <div class="text-info-grid">
-                        <div class="text-info-item"><span class="text-info-lbl">Edad / Nacionalidad:</span><span class="text-info-val">55 años / Colombo-Canadiense</span></div>
-                        <div class="text-info-item"><span class="text-info-lbl">Idiomas:</span><span class="text-info-val">Español (Nativo) / Inglés (Fluido)</span></div>
-                        <div class="text-info-item"><span class="text-info-lbl">Cabello / Tipo:</span><span class="text-info-val">Café Oscuro / Semi Ondulado</span></div>
-                        <div class="text-info-item"><span class="text-info-lbl">Piel:</span><span class="text-info-val">Trigueña</span></div>
-                        <div class="text-info-item"><span class="text-info-lbl">Detalles adicionales:</span><span class="text-info-val">Tatuajes / perforaciones: No</span></div>
-                    </div>
-                </div>
-                </div>
+                <div style="font-size: 0.5em; color: #444; margin-top: 15px; letter-spacing: 2px;">CLICK PARA EXPANDIR INFO</div>
+            </div>
         </div>
     </div>
 
@@ -144,13 +115,13 @@
     </div>
 
     <div id="modal-overlay" onclick="closeModal()">
+        <span class="close-btn">&times;</span>
         <img id="modal-image">
-        <div id="modal-slate-content" onclick="event.stopPropagation()">
+        <div id="modal-content-wrapper" onclick="event.stopPropagation()">
             </div>
     </div>
 
-    <footer style="margin-top: 100px; padding-bottom: 50px; color: #555;">
-        <p style="letter-spacing: 2px;">CONTACTO</p>
+    <footer>
         <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-mail">contacto.jorgenaranjo@gmail.com</a>
         <p>&copy; 2026 Jorge Naranjo</p>
     </footer>
@@ -158,31 +129,45 @@
     <script>
         const overlay = document.getElementById('modal-overlay');
         const modalImg = document.getElementById('modal-image');
-        const modalSlate = document.getElementById('modal-slate-content');
+        const wrapper = document.getElementById('modal-content-wrapper');
 
         function expandImage(src) {
             overlay.style.display = 'flex';
             modalImg.style.display = 'block';
-            modalSlate.style.display = 'none';
+            wrapper.style.display = 'none';
             modalImg.src = src;
         }
 
         function expandSlate() {
-            // Obtenemos la información completa oculta
-            const content = document.getElementById('full-slate-info').innerHTML;
-            
-            // Reemplazamos el contenido del modal con la info completa y grande
-            modalSlate.innerHTML = '<div class="slate-header">Physical Profile / Measurements</div>' + content;
-            
-            // Mostramos el modal a pantalla completa
+            const fullContent = `
+                <div class="full-title">Perfil Físico / Measurements</div>
+                <div class="full-grid">
+                    <div class="full-item"><span class="full-val">168</span><span class="full-lbl">Estatura (cm)</span></div>
+                    <div class="full-item"><span class="full-val">67.5</span><span class="full-lbl">Peso (kg)</span></div>
+                    <div class="full-item"><span class="full-val">Verdes</span><span class="full-lbl">Ojos</span></div>
+                    <div class="full-item"><span class="full-val">39</span><span class="full-lbl">Calzado (EU)</span></div>
+                    <div class="full-item"><span class="full-val">M</span><span class="full-lbl">Camisa</span></div>
+                    <div class="full-item"><span class="full-val">29-30</span><span class="full-lbl">Pantalón</span></div>
+                    <div class="full-item"><span class="full-val">106</span><span class="full-lbl">Pecho (cm)</span></div>
+                    <div class="full-item"><span class="full-val">75</span><span class="full-lbl">Cintura (cm)</span></div>
+                    <div class="full-item"><span class="full-val">92</span><span class="full-lbl">Cadera (cm)</span></div>
+                </div>
+                <div class="extra-info">
+                    <div class="extra-line"><span class="extra-lbl">Nacionalidad:</span><span class="extra-val">Colombo-Canadiense</span></div>
+                    <div class="extra-line"><span class="extra-lbl">Edad:</span><span class="extra-val">55 Años</span></div>
+                    <div class="extra-line"><span class="extra-lbl">Idiomas:</span><span class="extra-val">Español (Nativo) / Inglés (Fluido)</span></div>
+                    <div class="extra-line"><span class="extra-lbl">Cabello:</span><span class="extra-val">Café Oscuro / Semi Ondulado</span></div>
+                    <div class="extra-line"><span class="extra-lbl">Piel:</span><span class="extra-val">Trigueña</span></div>
+                    <div class="extra-line"><span class="extra-lbl">Tatuajes / Perforaciones:</span><span class="extra-val">No</span></div>
+                </div>
+            `;
+            wrapper.innerHTML = fullContent;
             overlay.style.display = 'flex';
             modalImg.style.display = 'none';
-            modalSlate.style.display = 'block';
+            wrapper.style.display = 'block';
         }
 
-        function closeModal() {
-            overlay.style.display = 'none';
-        }
+        function closeModal() { overlay.style.display = 'none'; }
     </script>
 </body>
 </html>
