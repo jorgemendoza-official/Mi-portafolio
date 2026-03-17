@@ -20,7 +20,7 @@
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; border: 1px solid #222; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* FICHA TÉCNICA - DISEÑO DE DOS COLUMNAS */
+        /* FICHA TÉCNICA - PERFIL JORGE NARANJO */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -30,29 +30,29 @@
         .slate-title { font-size: 0.75em; letter-spacing: 3px; color: #888; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 5px; width: 90%; text-transform: uppercase; }
         
         .slate-container { display: flex; width: 95%; gap: 15px; justify-content: center; }
-        .slate-column { width: 45%; }
-        .slate-table { width: 100%; font-size: 0.65em; text-align: left; border-collapse: collapse; }
-        .slate-table td { padding: 3px 0; border-bottom: 1px solid #1a1a1a; }
+        .slate-column { width: 48%; }
+        .slate-table { width: 100%; font-size: 0.62em; text-align: left; border-collapse: collapse; }
+        .slate-table td { padding: 2px 0; border-bottom: 1px solid #1a1a1a; }
         .slate-label { color: #666; font-style: italic; }
         .slate-value { color: #fff; text-align: right; font-weight: bold; }
 
-        /* GALERÍA INTERACTIVA */
+        /* GALERÍA */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s ease; cursor: pointer; }
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-        /* MODALES (AGRANDAR) */
+        /* MODALES */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 90%; border: 1px solid #fff; display: none; }
         
         #modal-slate-content { 
             display: none; background: #121212; padding: 40px; border: 2px solid #fff; 
-            border-radius: 8px; width: 90%; max-width: 700px; text-align: center; 
+            border-radius: 8px; width: 95%; max-width: 800px; text-align: center; 
         }
         #modal-slate-content .slate-title { font-size: 1.5em; margin-bottom: 25px; width: 100%; }
-        #modal-slate-content .slate-table { font-size: 1.1em; }
-        #modal-slate-content .slate-table td { padding: 8px 0; }
+        #modal-slate-content .slate-table { font-size: 1.05em; }
+        #modal-slate-content .slate-table td { padding: 6px 0; }
         #modal-slate-content .slate-container { display: flex !important; flex-direction: row !important; gap: 40px !important; }
 
         .contact-mail { color: #ffffff; text-decoration: none; font-size: 1.2em; letter-spacing: 2px; }
@@ -72,24 +72,29 @@
 
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card" id="main-slate">
-                <div class="slate-title">Ficha Técnica (cm)</div>
+                <div class="slate-title">Perfil / Measurements</div>
                 <div class="slate-container">
                     <div class="slate-column">
                         <table class="slate-table">
-                            <tr><td class="slate-label">Altura:</td><td class="slate-value">168 cm</td></tr>
-                            <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
-                            <tr><td class="slate-label">Cintura:</td><td class="slate-value">76 cm</td></tr>
-                            <tr><td class="slate-label">Cadera:</td><td class="slate-value">92 cm</td></tr>
+                            <tr><td class="slate-label">Estatura:</td><td class="slate-value">168 cm</td></tr>
+                            <tr><td class="slate-label">Peso:</td><td class="slate-value">67.5 kg</td></tr>
+                            <tr><td class="slate-label">Ojos:</td><td class="slate-value">Verdes</td></tr>
+                            <tr><td class="slate-label">Piel:</td><td class="slate-value">Trigueña</td></tr>
+                            <tr><td class="slate-label">Camisa:</td><td class="slate-value">M</td></tr>
                         </table>
                     </div>
                     <div class="slate-column">
                         <table class="slate-table">
-                            <tr><td class="slate-label">Manga:</td><td class="slate-value">82 cm</td></tr>
-                            <tr><td class="slate-label">Cuello:</td><td class="slate-value">37 cm</td></tr>
-                            <tr><td class="slate-label">Pierna:</td><td class="slate-value">91 cm</td></tr>
-                            <tr><td class="slate-label">Entrepierna:</td><td class="slate-value">69 cm</td></tr>
+                            <tr><td class="slate-label">Pantalón:</td><td class="slate-value">29-30</td></tr>
+                            <tr><td class="slate-label">Calzado:</td><td class="slate-value">39 EU</td></tr>
+                            <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
+                            <tr><td class="slate-label">Cintura:</td><td class="slate-value">75 cm</td></tr>
+                            <tr><td class="slate-label">Cadera:</td><td class="slate-value">92 cm</td></tr>
                         </table>
                     </div>
+                </div>
+                <div style="font-size: 0.55em; color: #555; margin-top: 10px; letter-spacing: 1px;">
+                    NACIONALIDAD: COLOMBO-CANADIENSE
                 </div>
             </div>
         </div>
@@ -134,9 +139,7 @@
             modalSlate.style.display = 'block';
         }
 
-        function closeModal() {
-            overlay.style.display = 'none';
-        }
+        function closeModal() { overlay.style.display = 'none'; }
     </script>
 </body>
 </html>
