@@ -20,17 +20,18 @@
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; border: 1px solid #222; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* FICHA TÉCNICA INTERACTIVA */
+        /* TARJETA DE MEDIDAS (DOS COLUMNAS) */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: #121212; padding: 5px; cursor: pointer; transition: 0.3s;
+            background: #121212; padding: 10px; cursor: pointer; transition: 0.3s;
         }
-        .slate-card:hover { background: #1a1a1a; border-color: #777; }
-        .slate-title { font-size: 0.75em; letter-spacing: 3px; color: #888; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; width: 90%; text-transform: uppercase; }
+        .slate-card:hover { background: #1a1a1a; border: 1px solid #555; }
+        .slate-title { font-size: 0.75em; letter-spacing: 3px; color: #888; margin-bottom: 12px; border-bottom: 1px solid #333; padding-bottom: 5px; width: 90%; text-transform: uppercase; }
         
         .slate-container { display: flex; width: 95%; gap: 15px; justify-content: center; }
-        .slate-table { width: 48%; font-size: 0.65em; text-align: left; border-collapse: collapse; }
+        .slate-column { width: 45%; } /* Mantenemos los dos grupos */
+        .slate-table { width: 100%; font-size: 0.65em; text-align: left; border-collapse: collapse; }
         .slate-table td { padding: 3px 0; border-bottom: 1px solid #1a1a1a; }
         .slate-label { color: #666; font-style: italic; }
         .slate-value { color: #fff; text-align: right; font-weight: bold; }
@@ -42,15 +43,15 @@
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
         /* MODALES */
-        #modal { display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        #modal img { max-width: 90%; max-height: 90%; border: 1px solid #fff; }
+        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        #modal-image { max-width: 90%; max-height: 90%; border: 1px solid #fff; display: none; }
         
-        /* Contenedor específico para agrandar la ficha */
-        #modal-content { background: #121212; padding: 40px; border: 1px solid #fff; border-radius: 8px; max-width: 600px; width: 90%; }
-        #modal-content .slate-title { font-size: 1.2em; margin-bottom: 20px; }
-        #modal-content .slate-table { font-size: 1.1em; width: 100%; }
-        #modal-content .slate-container { flex-direction: column; gap: 0; }
-        #modal-content .slate-table td { padding: 10px 0; }
+        /* Ficha técnica cuando se agranda */
+        #modal-slate-content { display: none; background: #121212; padding: 40px; border: 2px solid #fff; border-radius: 8px; width: 90%; max-width: 700px; text-align: center; }
+        #modal-slate-content .slate-title { font-size: 1.5em; margin-bottom: 25px; width: 100%; }
+        #modal-slate-content .slate-table { font-size: 1.1em; }
+        #modal-slate-content .slate-table td { padding: 8px 0; }
+        #modal-slate-content .slate-container { gap: 40px; }
 
         .contact-mail { color: #ffffff; text-decoration: none; font-size: 1.2em; letter-spacing: 2px; }
     </style>
@@ -67,22 +68,26 @@
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572097?title=0&byline=0&portrait=0"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166560186?title=0&byline=0&portrait=0"></iframe></div>
 
-        <div class="video-item" onclick="openSlateModal()">
-            <div class="slate-card">
+        <div class="video-item" onclick="expandSlate()">
+            <div class="slate-card" id="main-slate">
                 <div class="slate-title">Ficha Técnica (cm/kg)</div>
                 <div class="slate-container">
-                    <table class="slate-table">
-                        <tr><td class="slate-label">Altura:</td><td class="slate-value">168 cm</td></tr>
-                        <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
-                        <tr><td class="slate-label">Cintura:</td><td class="slate-value">76 cm</td></tr>
-                        <tr><td class="slate-label">Cadera:</td><td class="slate-value">92 cm</td></tr>
-                    </table>
-                    <table class="slate-table">
-                        <tr><td class="slate-label">Manga:</td><td class="slate-value">82 cm</td></tr>
-                        <tr><td class="slate-label">Cuello:</td><td class="slate-value">37 cm</td></tr>
-                        <tr><td class="slate-label">Pierna:</td><td class="slate-value">91 cm</td></tr>
-                        <tr><td class="slate-label">Entrepierna:</td><td class="slate-value">69 cm</td></tr>
-                    </table>
+                    <div class="slate-column">
+                        <table class="slate-table">
+                            <tr><td class="slate-label">Altura:</td><td class="slate-value">168 cm</td></tr>
+                            <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
+                            <tr><td class="slate-label">Cintura:</td><td class="slate-value">76 cm</td></tr>
+                            <tr><td class="slate-label">Cadera:</td><td class="slate-value">92 cm</td></tr>
+                        </table>
+                    </div>
+                    <div class="slate-column">
+                        <table class="slate-table">
+                            <tr><td class="slate-label">Manga:</td><td class="slate-value">82 cm</td></tr>
+                            <tr><td class="slate-label">Cuello:</td><td class="slate-value">37 cm</td></tr>
+                            <tr><td class="slate-label">Pierna:</td><td class="slate-value">91 cm</td></tr>
+                            <tr><td class="slate-label">Entrepierna:</td><td class="slate-value">69 cm</td></tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,15 +95,16 @@
 
     <div class="gallery-title">Galería</div>
     <div class="gallery-grid">
-        <img src="Photos/FOTO 1.webp" onclick="openModal(this.src)">
-        <img src="Photos/FOTO 2.webp" onclick="openModal(this.src)">
-        <img src="Photos/FOTO 3.webp" onclick="openModal(this.src)">
-        <img src="Photos/FOTO 4.webp" onclick="openModal(this.src)">
+        <img src="Photos/FOTO 1.webp" onclick="expandImage(this.src)">
+        <img src="Photos/FOTO 2.webp" onclick="expandImage(this.src)">
+        <img src="Photos/FOTO 3.webp" onclick="expandImage(this.src)">
+        <img src="Photos/FOTO 4.webp" onclick="expandImage(this.src)">
     </div>
 
-    <div id="modal" onclick="this.style.display='none'">
-        <img id="modalImg" style="display:none;">
-        <div id="modal-content" style="display:none;"></div>
+    <div id="modal-overlay" onclick="closeModal()">
+        <img id="modal-image">
+        <div id="modal-slate-content" onclick="event.stopPropagation()">
+            </div>
     </div>
 
     <footer style="margin-top: 100px; padding-bottom: 50px; color: #555;">
@@ -108,27 +114,27 @@
     </footer>
 
     <script>
-        function openModal(src) {
-            const modal = document.getElementById('modal');
-            const img = document.getElementById('modalImg');
-            const content = document.getElementById('modal-content');
-            
-            modal.style.display = 'flex';
-            img.style.display = 'block';
-            content.style.display = 'none';
-            img.src = src;
+        const overlay = document.getElementById('modal-overlay');
+        const modalImg = document.getElementById('modal-image');
+        const modalSlate = document.getElementById('modal-slate-content');
+
+        function expandImage(src) {
+            overlay.style.display = 'flex';
+            modalImg.style.display = 'block';
+            modalSlate.style.display = 'none';
+            modalImg.src = src;
         }
 
-        function openSlateModal() {
-            const modal = document.getElementById('modal');
-            const img = document.getElementById('modalImg');
-            const content = document.getElementById('modal-content');
-            const originalSlate = document.querySelector('.slate-card').innerHTML;
-            
-            modal.style.display = 'flex';
-            img.style.display = 'none';
-            content.style.display = 'block';
-            content.innerHTML = originalSlate;
+        function expandSlate() {
+            const content = document.getElementById('main-slate').innerHTML;
+            modalSlate.innerHTML = content; // Copiamos los dos grupos
+            overlay.style.display = 'flex';
+            modalImg.style.display = 'none';
+            modalSlate.style.display = 'block';
+        }
+
+        function closeModal() {
+            overlay.style.display = 'none';
         }
     </script>
 </body>
