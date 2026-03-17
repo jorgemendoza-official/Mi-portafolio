@@ -7,59 +7,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #ffffff; --bg: #000000; --accent: #1a1a1a; }
+        :root { --primary: #ffffff; --bg: #000000; --accent: #111111; --text-muted: #666666; }
+        
         body { 
             background-color: var(--bg); color: var(--primary); 
             font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center;
             -webkit-user-select: none; user-select: none;
         }
+
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.5em; margin-bottom: 5px; text-transform: uppercase; }
-        .subtitle { letter-spacing: 8px; font-size: 0.9em; text-transform: uppercase; margin-bottom: 40px; color: #888; }
+        .subtitle { letter-spacing: 8px; font-size: 0.9em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
-        .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; border-radius: 4px; border: 1px solid #222; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 60px; }
+        .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #080808; border-radius: 4px; border: 1px solid #1a1a1a; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* --- AJUSTES DE VISIBILIDAD FICHA TÉCNICA --- */
+        /* --- NUEVA FICHA TÉCNICA (SLATE CARD) --- */
         .slate-card { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: #121212; padding: 15px; cursor: pointer; transition: 0.3s;
+            background: linear-gradient(145deg, #0f0f0f, #050505); cursor: pointer; transition: 0.4s ease;
         }
-        .slate-card:hover { background: #1a1a1a; border: 1px solid #555; }
-        
-        .slate-title { 
-            font-size: 0.85em; /* Aumentado */
-            letter-spacing: 3px; color: #aaa; margin-bottom: 15px; 
-            border-bottom: 1px solid #333; padding-bottom: 8px; width: 90%; text-transform: uppercase; 
-        }
-        
-        .slate-container { display: flex; width: 95%; gap: 20px; justify-content: center; }
-        .slate-column { width: 48%; }
-        
-        .slate-table { width: 100%; font-size: 0.70em; /* Aumentado de 0.58 a 0.70 */ text-align: left; border-collapse: collapse; }
-        .slate-table td { padding: 4px 0; border-bottom: 1px solid #222; }
-        
-        .slate-label { color: #888; font-style: italic; }
-        .slate-value { color: #fff; text-align: right; font-weight: bold; letter-spacing: 0.5px; }
-        
-        .nationality-tag { 
-            font-size: 0.55em; /* Aumentado */
-            color: #666; margin-top: 15px; letter-spacing: 1.5px; text-transform: uppercase; 
-            font-weight: bold;
-        }
+        .slate-card:hover { background: #000; border: 1px solid #444; }
 
-        /* MODAL EXPANSIÓN (Asegurando que se vea grande al hacer clic) */
+        .slate-header { font-size: 0.75em; letter-spacing: 5px; color: #888; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 8px; width: 85%; }
+
+        .data-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; width: 90%; }
+        .data-item { display: flex; flex-direction: column; align-items: center; }
+        .val { font-size: 1.1em; font-weight: bold; color: #fff; letter-spacing: 1px; }
+        .lbl { font-size: 0.5em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+        
+        .footer-tags { margin-top: 25px; font-size: 0.55em; color: #444; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; }
+
+        /* MODAL EXPANSIÓN */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 90%; border: 1px solid #fff; display: none; }
         #modal-slate-content { 
-            display: none; background: #121212; padding: 40px; border: 2px solid #fff; 
-            border-radius: 8px; width: 95%; max-width: 850px; text-align: center; 
+            display: none; background: #000; padding: 50px; border: 1px solid #333; 
+            border-radius: 8px; width: 90%; max-width: 800px; text-align: center; 
         }
-        #modal-slate-content .slate-container { display: flex !important; flex-direction: row !important; gap: 50px !important; }
-        #modal-slate-content .slate-table { font-size: 1.1em; } /* Muy legible en modal */
-        #modal-slate-content .slate-title { font-size: 1.5em; }
-        #modal-slate-content .nationality-tag { font-size: 0.9em; }
+        #modal-slate-content .val { font-size: 2.2em; }
+        #modal-slate-content .lbl { font-size: 0.8em; margin-top: 8px; }
+        #modal-slate-content .slate-header { font-size: 1.2em; margin-bottom: 40px; }
+        #modal-slate-content .footer-tags { font-size: 1em; margin-top: 40px; }
 
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -95,26 +85,20 @@
 
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card" id="main-slate">
-                <div class="slate-title">Perfil / Measurements</div>
-                <div class="slate-container">
-                    <div class="slate-column">
-                        <table class="slate-table">
-                            <tr><td class="slate-label">Estatura:</td><td class="slate-value">168 cm</td></tr>
-                            <tr><td class="slate-label">Peso:</td><td class="slate-value">67.5 kg</td></tr>
-                            <tr><td class="slate-label">Ojos:</td><td class="slate-value">Verdes</td></tr>
-                            <tr><td class="slate-label">Piel:</td><td class="slate-value">Trigueña</td></tr>
-                        </table>
-                    </div>
-                    <div class="slate-column">
-                        <table class="slate-table">
-                            <tr><td class="slate-label">Calzado:</td><td class="slate-value">39 EU</td></tr>
-                            <tr><td class="slate-label">Camisa:</td><td class="slate-value">M</td></tr>
-                            <tr><td class="slate-label">Pecho:</td><td class="slate-value">106 cm</td></tr>
-                            <tr><td class="slate-label">Cintura:</td><td class="slate-value">75 cm</td></tr>
-                        </table>
-                    </div>
+                <div class="slate-header">Physical Profile</div>
+                
+                <div class="data-grid">
+                    <div class="data-item"><span class="val">168</span><span class="lbl">Estatura (cm)</span></div>
+                    <div class="data-item"><span class="val">67.5</span><span class="lbl">Peso (kg)</span></div>
+                    <div class="data-item"><span class="val">Verdes</span><span class="lbl">Ojos</span></div>
+                    <div class="data-item"><span class="val">39</span><span class="lbl">Calzado (EU)</span></div>
+                    <div class="data-item"><span class="val">106</span><span class="lbl">Pecho (cm)</span></div>
+                    <div class="data-item"><span class="val">75</span><span class="lbl">Cintura (cm)</span></div>
                 </div>
-                <div class="nationality-tag">Colombo-Canadiense | Pantalón: 29-30</div>
+
+                <div class="footer-tags">
+                    CAN / COL — PIEL: TRIGUEÑA — PANTALÓN: 29-30
+                </div>
             </div>
         </div>
     </div>
@@ -133,7 +117,7 @@
     </div>
 
     <footer style="margin-top: 100px; padding-bottom: 50px; color: #555;">
-        <a href="mailto:contacto.jorgenaranjo@gmail.com" style="color:#fff; text-decoration:none;">contacto.jorgenaranjo@gmail.com</a>
+        <a href="mailto:contacto.jorgenaranjo@gmail.com" style="color:#fff; text-decoration:none; letter-spacing: 2px;">contacto.jorgenaranjo@gmail.com</a>
         <p>&copy; 2026 Jorge Naranjo</p>
     </footer>
 
