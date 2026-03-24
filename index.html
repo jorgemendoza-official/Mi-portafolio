@@ -8,74 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #ffffff; --bg: #000000; --accent: #111111; --text-muted: #666666; }
-        
-        body { 
-            background-color: var(--bg); color: var(--primary); 
-            font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center;
-            -webkit-user-select: none; user-select: none;
-        }
-
+        body { background-color: var(--bg); color: var(--primary); font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center; -webkit-user-select: none; user-select: none; }
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.2em; margin-bottom: 5px; text-transform: uppercase; }
         .subtitle { letter-spacing: 6px; font-size: 0.8em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
-        
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #080808; border-radius: 4px; border: 1px solid #1a1a1a; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-        /* --- TARJETA DE PREVISUALIZACIÓN --- */
-        .slate-card { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(145deg, #0f0f0f, #050505); cursor: pointer; transition: 0.4s ease;
-        }
+        .slate-card { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(145deg, #0f0f0f, #050505); cursor: pointer; transition: 0.4s ease; }
         .slate-card:hover { border: 1px solid #444; background: #000; }
-        .slate-header-mini { font-size: 0.7em; letter-spacing: 4px; color: #888; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 5px; width: 85%; }
-
         .data-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 90%; }
         .mini-val { font-size: 1em; font-weight: bold; color: #fff; }
-        .mini-lbl { font-size: 0.45em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .mini-lbl { font-size: 0.45em; color: var(--text-muted); text-transform: uppercase; }
 
-        /* --- MODAL PANTALLA COMPLETA --- */
-        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
-        
-        #modal-content-wrapper { 
-            position: relative; background: #000; padding: 40px 20px; border: 1px solid #222; 
-            width: 90%; max-width: 900px; height: 85vh; overflow-y: auto; border-radius: 8px;
-        }
-
-        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; color: #fff; cursor: pointer; z-index: 10000; }
-
-        .full-title { font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; color: #fff; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 15px; }
-        
-        .full-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .full-item { display: flex; flex-direction: column; align-items: center; }
-        .full-val { font-size: 1.8em; font-weight: bold; color: #fff; }
-        .full-lbl { font-size: 0.7em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; }
-
-        .extra-info { text-align: left; max-width: 600px; margin: 0 auto; border-top: 1px solid #111; padding-top: 30px; }
-        .extra-line { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #080808; padding-bottom: 5px; }
-        .extra-lbl { color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; }
-        .extra-val { color: #fff; font-weight: bold; font-size: 1em; text-align: right; }
-
-        #modal-image { max-width: 95%; max-height: 90%; display: none; border: 1px solid #333; }
-
-        /* Galería corregida para buscar en las carpetas nuevas */
+        /* GALERÍA */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .gallery-item-container { position: relative; }
-        .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s ease; cursor: pointer; }
-        .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        .album-label { font-size: 0.7em; letter-spacing: 2px; color: #666; margin-top: 8px; text-transform: uppercase; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .album-box { cursor: pointer; transition: 0.4s; }
+        .album-box:hover { transform: translateY(-5px); }
+        .album-box img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s; border: 1px solid #222; }
+        .album-box:hover img { filter: grayscale(0%); border-color: #555; }
+        .album-label { margin-top: 10px; font-size: 0.7em; letter-spacing: 2px; color: #888; text-transform: uppercase; }
 
-        footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
-        .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8em; }
-            .full-val { font-size: 1.4em; }
-            .extra-line { flex-direction: column; align-items: flex-start; }
-            .extra-val { text-align: left; margin-top: 4px; }
-        }
+        /* MODAL */
+        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        #modal-image { max-width: 90%; max-height: 80vh; object-fit: contain; border: 1px solid #333; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 40px; cursor: pointer; padding: 20px; transition: 0.3s; }
+        .nav-btn:hover { color: #888; }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+        .close-btn { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; cursor: pointer; }
+        #modal-content-wrapper { background: #000; padding: 40px; border: 1px solid #222; width: 90%; max-width: 800px; color: white; border-radius: 8px; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -89,47 +51,44 @@
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572058?title=0&byline=0&portrait=0"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166572097?title=0&byline=0&portrait=0"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1166560186?title=0&byline=0&portrait=0"></iframe></div>
-
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card">
-                <div class="slate-header-mini">Ficha Técnica / Slate</div>
                 <div class="data-grid-mini">
                     <div><span class="mini-val">168</span><br><span class="mini-lbl">Alt (cm)</span></div>
                     <div><span class="mini-val">67.5</span><br><span class="mini-lbl">Peso (kg)</span></div>
                     <div><span class="mini-val">Verdes</span><br><span class="mini-lbl">Ojos</span></div>
-                    <div><span class="mini-val">M</span><br><span class="mini-lbl">Camisa</span></div>
-                    <div><span class="mini-val">29-30</span><br><span class="mini-lbl">Pant</span></div>
-                    <div><span class="mini-val">39</span><br><span class="mini-lbl">Zap</span></div>
                 </div>
-                <div style="font-size: 0.5em; color: #444; margin-top: 15px; letter-spacing: 2px;">CLICK PARA EXPANDIR INFO</div>
+                <div style="font-size: 0.5em; color: #444; margin-top: 15px; letter-spacing: 2px;">FICHA TÉCNICA</div>
             </div>
         </div>
     </div>
 
-    <div class="gallery-title">Galería de Proyectos</div>
+    <div class="gallery-title">Portafolio Fotográfico</div>
     <div class="gallery-grid">
-        <div class="gallery-item-container">
-            <img src="Photos/Album1/FOTO_1_1.webp" onclick="expandImage(this.src)">
-            <div class="album-label">Álbum 1</div>
+        <div class="album-box" onclick="openAlbum(1, 31)">
+            <img src="Photos/Album1/FOTO_1_1.webp">
+            <div class="album-label">Book Actoral</div>
         </div>
-        <div class="gallery-item-container">
-            <img src="Photos/Album2/FOTO_2_1.webp" onclick="expandImage(this.src)">
-            <div class="album-label">Álbum 2</div>
+        <div class="album-box" onclick="openAlbum(2, 10)">
+            <img src="Photos/Album2/FOTO_2_1.webp">
+            <div class="album-label">Personajes</div>
         </div>
-        <div class="gallery-item-container">
-            <img src="Photos/Album3/FOTO_3_1.webp" onclick="expandImage(this.src)">
-            <div class="album-label">Álbum 3</div>
+        <div class="album-box" onclick="openAlbum(3, 10)">
+            <img src="Photos/Album3/FOTO_3_1.webp">
+            <div class="album-label">Producciones</div>
         </div>
-        <div class="gallery-item-container">
-            <img src="Photos/Album4/FOTO_4_1.webp" onclick="expandImage(this.src)">
-            <div class="album-label">Álbum 4</div>
+        <div class="album-box" onclick="openAlbum(4, 5)">
+            <img src="Photos/Album4/FOTO_4_1.webp">
+            <div class="album-label">Publicidad</div>
         </div>
     </div>
 
-    <div id="modal-overlay" onclick="closeModal()">
-        <span class="close-btn">&times;</span>
-        <img id="modal-image">
-        <div id="modal-content-wrapper" onclick="event.stopPropagation()"></div>
+    <div id="modal-overlay">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <button class="nav-btn prev-btn" onclick="changeImg(-1)">&#10094;</button>
+        <img id="modal-image" src="">
+        <button class="nav-btn next-btn" onclick="changeImg(1)">&#10095;</button>
+        <div id="modal-content-wrapper"></div>
     </div>
 
     <footer>
@@ -138,41 +97,37 @@
     </footer>
 
     <script>
+        let currentAlbum = 1;
+        let currentImgIdx = 1;
+        let maxImgs = 0;
+
         const overlay = document.getElementById('modal-overlay');
         const modalImg = document.getElementById('modal-image');
         const wrapper = document.getElementById('modal-content-wrapper');
 
-        function expandImage(src) {
+        function openAlbum(albumNum, totalPhotos) {
+            currentAlbum = albumNum;
+            currentImgIdx = 1;
+            maxImgs = totalPhotos;
             overlay.style.display = 'flex';
             modalImg.style.display = 'block';
             wrapper.style.display = 'none';
-            modalImg.src = src;
+            updateModalImage();
+        }
+
+        function changeImg(step) {
+            currentImgIdx += step;
+            if (currentImgIdx > maxImgs) currentImgIdx = 1;
+            if (currentImgIdx < 1) currentImgIdx = maxImgs;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
         }
 
         function expandSlate() {
-            const fullContent = `
-                <div class="full-title">Perfil Físico / Measurements</div>
-                <div class="full-grid">
-                    <div class="full-item"><span class="full-val">168</span><span class="full-lbl">Estatura (cm)</span></div>
-                    <div class="full-item"><span class="full-val">67.5</span><span class="full-lbl">Peso (kg)</span></div>
-                    <div class="full-item"><span class="full-val">Verdes</span><span class="full-lbl">Ojos</span></div>
-                    <div class="full-item"><span class="full-val">39</span><span class="full-lbl">Calzado (EU)</span></div>
-                    <div class="full-item"><span class="full-val">M</span><span class="full-lbl">Camisa</span></div>
-                    <div class="full-item"><span class="full-val">29-30</span><span class="full-lbl">Pantalón</span></div>
-                    <div class="full-item"><span class="full-val">106</span><span class="full-lbl">Pecho (cm)</span></div>
-                    <div class="full-item"><span class="full-val">75</span><span class="full-lbl">Cintura (cm)</span></div>
-                    <div class="full-item"><span class="full-val">92</span><span class="full-lbl">Cadera (cm)</span></div>
-                </div>
-                <div class="extra-info">
-                    <div class="extra-line"><span class="extra-lbl">Nacionalidad:</span><span class="extra-val">Colombo-Canadiense</span></div>
-                    <div class="extra-line"><span class="extra-lbl">Edad:</span><span class="extra-val">55 Años</span></div>
-                    <div class="extra-line"><span class="extra-lbl">Idiomas:</span><span class="extra-val">Español (Nativo) / Inglés (Fluido)</span></div>
-                    <div class="extra-line"><span class="extra-lbl">Cabello:</span><span class="extra-val">Café Oscuro / Semi Ondulado</span></div>
-                    <div class="extra-line"><span class="extra-lbl">Piel:</span><span class="extra-val">Trigueña</span></div>
-                    <div class="extra-line"><span class="extra-lbl">Tatuajes / Perforaciones:</span><span class="extra-val">No</span></div>
-                </div>
-            `;
-            wrapper.innerHTML = fullContent;
+            wrapper.innerHTML = `<h2 style="letter-spacing:3px">FICHA TÉCNICA</h2><p>Contenido detallado del actor...</p>`;
             overlay.style.display = 'flex';
             modalImg.style.display = 'none';
             wrapper.style.display = 'block';
