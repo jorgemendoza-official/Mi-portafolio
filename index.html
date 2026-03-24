@@ -45,7 +45,6 @@
 
         .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; color: #fff; cursor: pointer; z-index: 10000; }
 
-        /* Estilos de información expandida */
         .full-title { font-size: 1.5em; letter-spacing: 5px; margin-bottom: 40px; color: #fff; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 15px; }
         
         .full-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 25px; margin-bottom: 40px; }
@@ -60,16 +59,17 @@
 
         #modal-image { max-width: 95%; max-height: 90%; display: none; border: 1px solid #333; }
 
-        /* Galería */
+        /* Galería corregida para buscar en las carpetas nuevas */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item-container { position: relative; }
         .gallery-grid img { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s ease; cursor: pointer; }
         .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.02); }
+        .album-label { font-size: 0.7em; letter-spacing: 2px; color: #666; margin-top: 8px; text-transform: uppercase; }
 
         footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
         .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
 
-        /* Mobile specific adjustments */
         @media (max-width: 600px) {
             h1 { font-size: 1.8em; }
             .full-val { font-size: 1.4em; }
@@ -106,19 +106,30 @@
         </div>
     </div>
 
-    <div class="gallery-title">Galería</div>
+    <div class="gallery-title">Galería de Proyectos</div>
     <div class="gallery-grid">
-        <img src="Photos/FOTO 1.webp" onclick="expandImage(this.src)">
-        <img src="Photos/FOTO 2.webp" onclick="expandImage(this.src)">
-        <img src="Photos/FOTO 3.webp" onclick="expandImage(this.src)">
-        <img src="Photos/FOTO 4.webp" onclick="expandImage(this.src)">
+        <div class="gallery-item-container">
+            <img src="Photos/Album1/FOTO_1_1.webp" onclick="expandImage(this.src)">
+            <div class="album-label">Álbum 1</div>
+        </div>
+        <div class="gallery-item-container">
+            <img src="Photos/Album2/FOTO_2_1.webp" onclick="expandImage(this.src)">
+            <div class="album-label">Álbum 2</div>
+        </div>
+        <div class="gallery-item-container">
+            <img src="Photos/Album3/FOTO_3_1.webp" onclick="expandImage(this.src)">
+            <div class="album-label">Álbum 3</div>
+        </div>
+        <div class="gallery-item-container">
+            <img src="Photos/Album4/FOTO_4_1.webp" onclick="expandImage(this.src)">
+            <div class="album-label">Álbum 4</div>
+        </div>
     </div>
 
     <div id="modal-overlay" onclick="closeModal()">
         <span class="close-btn">&times;</span>
         <img id="modal-image">
-        <div id="modal-content-wrapper" onclick="event.stopPropagation()">
-            </div>
+        <div id="modal-content-wrapper" onclick="event.stopPropagation()"></div>
     </div>
 
     <footer>
