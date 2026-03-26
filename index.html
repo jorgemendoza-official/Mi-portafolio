@@ -101,7 +101,7 @@
         <p>&copy; 2026 Jorge Mendoza</p>
     </footer>
 
-    <script>
+   <script>
         let currentAlbum = 1;
         let currentImgIdx = 1;
         let maxImgs = 0;
@@ -131,37 +131,20 @@
             updateModalImage();
         }
 
-       function updateModalImage() {
+        function updateModalImage() {
             // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
             if (currentAlbum === 1) {
-                // ESTA ES LA LÍNEA QUE TIENES QUE AÑADIR PARA LA TERCERA FOTO:
+                // Tu foto nueva en la posición 3
                 if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
-
+                
+                // Otras fotos especiales
                 if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
                 if (currentImgIdx === 7) { modalImg.src = "Photos/FOTO 2.webp"; return; }
                 if (currentImgIdx === 8) { modalImg.src = "Photos/FOTO 3.webp"; return; }
                 if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
             }
             
-            // Si no es una de las "sustituidas", busca la foto normal en su carpeta
-            modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
-        }function updateModalImage() {
-            // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
-            if (currentAlbum === 1) {
-                // ESTA ES LA LÍNEA QUE TIENES QUE AÑADIR PARA LA TERCERA FOTO:
-                if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
-
-                if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
-                if (currentImgIdx === 7) { modalImg.src = "Photos/FOTO 2.webp"; return; }
-                if (currentImgIdx === 8) { modalImg.src = "Photos/FOTO 3.webp"; return; }
-                if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
-            }
-            
-            // Si no es una de las "sustituidas", busca la foto normal en su carpeta
-            modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
-        }
-            
-            // Si no es una de las "sustituidas", busca la foto normal en su carpeta
+            // Si no es una de las de arriba, busca la foto normal por número
             modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
         }
 
@@ -190,6 +173,7 @@
         }
 
         function closeModal() { overlay.style.display = 'none'; }
+        
         document.addEventListener('keydown', (e) => {
             if (e.key === "Escape") closeModal();
             if (overlay.style.display === 'flex' && modalImg.style.display === 'block') {
