@@ -131,14 +131,35 @@
             updateModalImage();
         }
 
-        function updateModalImage() {
+       function updateModalImage() {
             // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
             if (currentAlbum === 1) {
+                // ESTA ES LA LÍNEA QUE TIENES QUE AÑADIR PARA LA TERCERA FOTO:
+                if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
+
                 if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
                 if (currentImgIdx === 7) { modalImg.src = "Photos/FOTO 2.webp"; return; }
                 if (currentImgIdx === 8) { modalImg.src = "Photos/FOTO 3.webp"; return; }
                 if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
             }
+            
+            // Si no es una de las "sustituidas", busca la foto normal en su carpeta
+            modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
+        }function updateModalImage() {
+            // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
+            if (currentAlbum === 1) {
+                // ESTA ES LA LÍNEA QUE TIENES QUE AÑADIR PARA LA TERCERA FOTO:
+                if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
+
+                if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
+                if (currentImgIdx === 7) { modalImg.src = "Photos/FOTO 2.webp"; return; }
+                if (currentImgIdx === 8) { modalImg.src = "Photos/FOTO 3.webp"; return; }
+                if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
+            }
+            
+            // Si no es una de las "sustituidas", busca la foto normal en su carpeta
+            modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
+        }
             
             // Si no es una de las "sustituidas", busca la foto normal en su carpeta
             modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
