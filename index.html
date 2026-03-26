@@ -138,7 +138,8 @@
             if (currentAlbum === 1) {
                 if (currentImgIdx === 3) photoPath = "Photos/Album1/FOTO_1_16.webp";
                 else if (currentImgIdx === 5) photoPath = "Photos/FOTO 1.webp";
-                else if (currentImgIdx === 7) photoPath = "Photos/FOTO 2.webp";
+                // CORRECCIÓN FOTO 7: Buscamos en Album1
+                else if (currentImgIdx === 7) photoPath = "Photos/Album1/FOTO_1_7.webp";
                 else if (currentImgIdx === 8) photoPath = "Photos/FOTO 3.webp";
                 else if (currentImgIdx === 12) photoPath = "Photos/FOTO 4.webp";
                 else photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
@@ -155,14 +156,11 @@
                 }
             } 
             
-            // --- ÁLBUM 3 (Basado en tu última lista) ---
+            // --- ÁLBUM 3 ---
             else if (currentAlbum === 3) {
-                // Saltos inteligentes para evitar archivos inexistentes
                 if (currentImgIdx === 8) currentImgIdx = 9;
                 if (currentImgIdx === 19) currentImgIdx = 20;
-                if (currentImgIdx === 31) currentImgIdx = 33; // Salta el 31 y 32 que no están
-                if (currentImgIdx === 32) currentImgIdx = 33;
-
+                if (currentImgIdx === 31 || currentImgIdx === 32) currentImgIdx = 33;
                 photoPath = `Photos/Album3/FOTO_3_${currentImgIdx}.webp`;
             } 
             
@@ -179,16 +177,39 @@
             modalImg.src = photoPath;
         }
 
-🚀 Instrucciones para que quede perfecto:
+        function expandSlate() {
+            overlay.style.display = 'flex';
+            modalImg.style.display = 'none';
+            btnPrev.style.display = 'none';
+            btnNext.style.display = 'none';
+            wrapper.style.display = 'block';
+            wrapper.innerHTML = `
+                <h2 style="letter-spacing:4px; font-style:italic">JORGE MENDOZA</h2>
+                <div class="full-grid">
+                    <div class="full-item"><span class="full-val">168cm</span><span class="full-lbl">Estatura</span></div>
+                    <div class="full-item"><span class="full-val">67.5kg</span><span class="full-lbl">Peso</span></div>
+                    <div class="full-item"><span class="full-val">Verdes</span><span class="full-lbl">Ojos</span></div>
+                    <div class="full-item"><span class="full-val">M</span><span class="full-lbl">Camisa</span></div>
+                    <div class="full-item"><span class="full-val">29-30</span><span class="full-lbl">Pantalón</span></div>
+                    <div class="full-item"><span class="full-val">39</span><span class="full-lbl">Calzado</span></div>
+                </div>
+                <div style="margin-top:30px; border-top:1px solid #222; padding-top:20px; font-size:0.9em; line-height:1.8">
+                    <strong>Nacionalidad:</strong> Colombo-Canadiense<br>
+                    <strong>Idiomas:</strong> Español (Nativo) / Inglés (Fluido)<br>
+                    <strong>Edad:</strong> 55 años
+                </div>
+            `;
+        }
 
-    Borra todo lo que tienes actualmente entre los tags <script> y </script>.
-
-    Pega el bloque que te acabo de dar.
-
-    Haz el Commit changes en GitHub.
-
-    Recuerda probarlo en una ventana de incógnito de tu navegador para que los cambios se vean de inmediato.
-
-Con este código, las fotos 10, 19, 21, 25 y 26 del segundo álbum deberían cargar sin problemas. ¿Te gustaría que verifiquemos algo más una vez lo pegues?
+        function closeModal() { overlay.style.display = 'none'; }
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeModal();
+            if (overlay.style.display === 'flex' && modalImg.style.display === 'block') {
+                if (e.key === "ArrowRight") changeImg(1);
+                if (e.key === "ArrowLeft") changeImg(-1);
+            }
+        });
+    </script>
 </body>
 </html>
