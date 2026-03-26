@@ -101,7 +101,7 @@
         <p>&copy; 2026 Jorge Mendoza</p>
     </footer>
 
-  <script>
+ <script>
         let currentAlbum = 1;
         let currentImgIdx = 1;
         let maxImgs = 0;
@@ -132,7 +132,7 @@
         }
 
         function updateModalImage() {
-            // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
+            // ÁLBUM 1
             if (currentAlbum === 1) {
                 if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
                 if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
@@ -141,20 +141,31 @@
                 if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
             }
 
-            // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 2 (CORRIGIENDO ERRORES)
+            // ÁLBUM 2 (CORRECCIONES SEGÚN TU LISTA)
             if (currentAlbum === 2) {
-                // La que cambiaste originalmente
-                if (currentImgIdx === 4) { modalImg.src = "Photos/Album2/FOTO_3_34.webp"; return; }
-                
-                // Corrección de archivos .jpg / .jpeg que no se ven
+                // La 4 que querías cambiar por la del álbum 3
+                if (currentImgIdx === 4) { modalImg.src = "Photos/Album3/FOTO_3_34.webp"; return; }
+                // Correcciones de formato
                 if (currentImgIdx === 10) { modalImg.src = "Photos/Album2/FOTO_2_10.jpg"; return; }
                 if (currentImgIdx === 19) { modalImg.src = "Photos/Album2/FOTO_2_19.jpeg"; return; }
                 if (currentImgIdx === 21) { modalImg.src = "Photos/Album2/FOTO_2_21.jpeg"; return; }
+                if (currentImgIdx === 23) { modalImg.src = "Photos/Album2/FOTO_2_23.jpeg"; return; }
                 if (currentImgIdx === 25) { modalImg.src = "Photos/Album2/FOTO_2_25.jpeg"; return; }
                 if (currentImgIdx === 26) { modalImg.src = "Photos/Album2/FOTO_2_26.jpeg"; return; }
+                if (currentImgIdx === 27) { modalImg.src = "Photos/Album2/FOTO_2_27.jpeg"; return; }
+                if (currentImgIdx === 28) { modalImg.src = "Photos/Album2/FOTO_2_28.jpeg"; return; }
+            }
+
+            // ÁLBUM 4 (CORRECCIONES DE JPEG)
+            if (currentAlbum === 4) {
+                const jpegs = [13, 14, 16, 17];
+                if (jpegs.includes(currentImgIdx)) {
+                    modalImg.src = `Photos/Album4/FOTO_4_${currentImgIdx}.jpeg`;
+                    return;
+                }
             }
             
-            // Si no es una sustitución, busca el formato estándar .webp
+            // BUSQUEDA ESTÁNDAR (.webp)
             modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
         }
 
