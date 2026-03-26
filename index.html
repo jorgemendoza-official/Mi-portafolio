@@ -101,7 +101,7 @@
         <p>&copy; 2026 Jorge Mendoza</p>
     </footer>
 
-   <script>
+  <script>
         let currentAlbum = 1;
         let currentImgIdx = 1;
         let maxImgs = 0;
@@ -131,7 +131,7 @@
             updateModalImage();
         }
 
-       function updateModalImage() {
+        function updateModalImage() {
             // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
             if (currentAlbum === 1) {
                 if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
@@ -143,7 +143,7 @@
 
             // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 2 (CORRIGIENDO ERRORES)
             if (currentAlbum === 2) {
-                // La que querías cambiar originalmente
+                // La que cambiaste originalmente
                 if (currentImgIdx === 4) { modalImg.src = "Photos/Album2/FOTO_3_34.webp"; return; }
                 
                 // Corrección de archivos .jpg / .jpeg que no se ven
@@ -157,20 +157,6 @@
             // Si no es una sustitución, busca el formato estándar .webp
             modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
         }
-
-💡 ¿Qué es lo que pasaba?
-
-    Caso Foto 10: En tu carpeta se llama FOTO_2_10.jpg, pero el código buscaba .webp. Al poner la línea de arriba, ya la encontrará.
-
-    Caso Fotos 19, 21, 25, 26: En la captura veo que terminan en .jpeg (con "e"). El código original solo busca archivos sin esa "e".
-
-✅ Recomendación de oro:
-
-Para que no tengas que escribir código por cada foto con error, lo mejor en el futuro es que cuando subas fotos a GitHub, todas tengan el mismo formato (.webp) y sigan el número exacto.
-
-Por ahora, con este cambio de código que te pasé, esos "cuadritos quebrados" deberían desaparecer y mostrar la imagen real.
-
-¿Quieres que revisemos alguna otra foto que se vea mal o probamos con estas primero?
 
         function expandSlate() {
             overlay.style.display = 'flex';
@@ -206,5 +192,17 @@ Por ahora, con este cambio de código que te pasé, esos "cuadritos quebrados" d
             }
         });
     </script>
+
+🚀 Instrucciones para que quede perfecto:
+
+    Borra todo lo que tienes actualmente entre los tags <script> y </script>.
+
+    Pega el bloque que te acabo de dar.
+
+    Haz el Commit changes en GitHub.
+
+    Recuerda probarlo en una ventana de incógnito de tu navegador para que los cambios se vean de inmediato.
+
+Con este código, las fotos 10, 19, 21, 25 y 26 del segundo álbum deberían cargar sin problemas. ¿Te gustaría que verifiquemos algo más una vez lo pegues?
 </body>
 </html>
