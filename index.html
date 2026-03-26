@@ -131,22 +131,46 @@
             updateModalImage();
         }
 
-        function updateModalImage() {
+       function updateModalImage() {
             // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 1
             if (currentAlbum === 1) {
-                // Tu foto nueva en la posición 3
                 if (currentImgIdx === 3) { modalImg.src = "Photos/Album1/FOTO_1_16.webp"; return; }
-                
-                // Otras fotos especiales
                 if (currentImgIdx === 5) { modalImg.src = "Photos/FOTO 1.webp"; return; }
                 if (currentImgIdx === 7) { modalImg.src = "Photos/FOTO 2.webp"; return; }
                 if (currentImgIdx === 8) { modalImg.src = "Photos/FOTO 3.webp"; return; }
                 if (currentImgIdx === 12) { modalImg.src = "Photos/FOTO 4.webp"; return; }
             }
+
+            // LÓGICA DE SUSTITUCIÓN PARA EL ÁLBUM 2 (CORRIGIENDO ERRORES)
+            if (currentAlbum === 2) {
+                // La que querías cambiar originalmente
+                if (currentImgIdx === 4) { modalImg.src = "Photos/Album2/FOTO_3_34.webp"; return; }
+                
+                // Corrección de archivos .jpg / .jpeg que no se ven
+                if (currentImgIdx === 10) { modalImg.src = "Photos/Album2/FOTO_2_10.jpg"; return; }
+                if (currentImgIdx === 19) { modalImg.src = "Photos/Album2/FOTO_2_19.jpeg"; return; }
+                if (currentImgIdx === 21) { modalImg.src = "Photos/Album2/FOTO_2_21.jpeg"; return; }
+                if (currentImgIdx === 25) { modalImg.src = "Photos/Album2/FOTO_2_25.jpeg"; return; }
+                if (currentImgIdx === 26) { modalImg.src = "Photos/Album2/FOTO_2_26.jpeg"; return; }
+            }
             
-            // Si no es una de las de arriba, busca la foto normal por número
+            // Si no es una sustitución, busca el formato estándar .webp
             modalImg.src = `Photos/Album${currentAlbum}/FOTO_${currentAlbum}_${currentImgIdx}.webp`;
         }
+
+💡 ¿Qué es lo que pasaba?
+
+    Caso Foto 10: En tu carpeta se llama FOTO_2_10.jpg, pero el código buscaba .webp. Al poner la línea de arriba, ya la encontrará.
+
+    Caso Fotos 19, 21, 25, 26: En la captura veo que terminan en .jpeg (con "e"). El código original solo busca archivos sin esa "e".
+
+✅ Recomendación de oro:
+
+Para que no tengas que escribir código por cada foto con error, lo mejor en el futuro es que cuando subas fotos a GitHub, todas tengan el mismo formato (.webp) y sigan el número exacto.
+
+Por ahora, con este cambio de código que te pasé, esos "cuadritos quebrados" deberían desaparecer y mostrar la imagen real.
+
+¿Quieres que revisemos alguna otra foto que se vea mal o probamos con estas primero?
 
         function expandSlate() {
             overlay.style.display = 'flex';
