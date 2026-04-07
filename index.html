@@ -134,8 +134,7 @@
                 photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
             } 
             else if (currentAlbum === 2) {
-                if (currentImgIdx === 4) photoPath = "Photos/Album3/FOTO_3_34.webp";
-                else if (currentImgIdx === 10) photoPath = "Photos/Album2/FOTO_2_10.jpg";
+                if (currentImgIdx === 10) photoPath = "Photos/Album2/FOTO_2_10.jpg";
                 else if ([19, 21, 23, 25, 26, 27, 28].includes(currentImgIdx)) {
                     photoPath = `Photos/Album2/FOTO_2_${currentImgIdx}.jpeg`;
                 } else {
@@ -143,15 +142,10 @@
                 }
             } 
             else if (currentAlbum === 3) {
-                let tempIdx = currentImgIdx;
-                if (tempIdx === 8) tempIdx = 9;
-                if (tempIdx === 19) tempIdx = 20;
-                if (tempIdx === 31 || tempIdx === 32) tempIdx = 33;
-                photoPath = `Photos/Album3/FOTO_3_${tempIdx}.webp`;
+                photoPath = `Photos/Album3/FOTO_3_${currentImgIdx}.webp`;
             } 
             else if (currentAlbum === 4) {
-                if (currentImgIdx === 29) photoPath = "Photos/Album4/FOTO_4_29..webp";
-                else if ([13, 14, 16, 17].includes(currentImgIdx)) {
+                if ([13, 14, 16, 17].includes(currentImgIdx)) {
                     photoPath = `Photos/Album4/FOTO_4_${currentImgIdx}.jpeg`;
                 } else {
                     photoPath = `Photos/Album4/FOTO_4_${currentImgIdx}.webp`;
@@ -179,7 +173,7 @@
                 <div style="margin-top:30px; border-top:1px solid #222; padding-top:20px; font-size:0.9em; line-height:1.8">
                     <strong>Nacionalidad:</strong> Colombo-Canadiense<br>
                     <strong>Idiomas:</strong> Español (Nativo) / Inglés (Fluido)<br>
-                    <strong>Edad:</strong> 65 años
+                    <strong>Edad:</strong> 55 años
                 </div>
             `;
         }
