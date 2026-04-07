@@ -51,8 +51,6 @@
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177479488?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177472533?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177497683?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
-        <div class="video-item"><iframe src="https://player.vimeo.com/video/0?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
-
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card">
                 <div class="data-grid-mini">
@@ -65,23 +63,11 @@
         </div>
     </div>
 
-    <div class="gallery-title">Galería</div>
+    <div class="gallery-title">Book Actoral</div>
     <div class="gallery-grid">
-        <div class="album-box" onclick="openAlbum(1, 30)">
+        <div class="album-box" onclick="openAlbum(1, 31)">
             <img src="Photos/Album1/FOTO_1_1.webp">
-            <div class="album-label">Book Actoral</div>
-        </div>
-        <div class="album-box" onclick="openAlbum(2, 23)">
-            <img src="Photos/Album2/FOTO_2_1.webp">
-            <div class="album-label">Personajes</div>
-        </div>
-        <div class="album-box" onclick="openAlbum(3, 10)">
-            <img src="Photos/Album3/FOTO_3_1.webp">
-            <div class="album-label">Producciones</div>
-        </div>
-        <div class="album-box" onclick="openAlbum(4, 10)">
-            <img src="Photos/Album4/FOTO_4_1.webp">
-            <div class="album-label">Publicidad</div>
+            <div class="album-label">Sesión Principal (31 Fotos)</div>
         </div>
     </div>
 
@@ -99,9 +85,8 @@
     </footer>
 
     <script>
-        let currentAlbum = 1;
         let currentImgIdx = 1;
-        let maxImgs = 0;
+        let maxImgs = 31;
 
         const overlay = document.getElementById('modal-overlay');
         const modalImg = document.getElementById('modal-image');
@@ -109,10 +94,9 @@
         const btnPrev = document.getElementById('btn-prev');
         const btnNext = document.getElementById('btn-next');
 
-        function openAlbum(albumNum, totalPhotos) {
-            currentAlbum = albumNum;
+        function openAlbum(num, total) {
             currentImgIdx = 1;
-            maxImgs = totalPhotos;
+            maxImgs = total;
             overlay.style.display = 'flex';
             modalImg.style.display = 'block';
             wrapper.style.display = 'none';
@@ -129,29 +113,8 @@
         }
 
         function updateModalImage() {
-            let photoPath = "";
-            if (currentAlbum === 1) {
-                photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
-            } 
-            else if (currentAlbum === 2) {
-                if (currentImgIdx === 10) photoPath = "Photos/Album2/FOTO_2_10.jpg";
-                else if ([19, 21, 23, 25, 26, 27, 28].includes(currentImgIdx)) {
-                    photoPath = `Photos/Album2/FOTO_2_${currentImgIdx}.jpeg`;
-                } else {
-                    photoPath = `Photos/Album2/FOTO_2_${currentImgIdx}.webp`;
-                }
-            } 
-            else if (currentAlbum === 3) {
-                photoPath = `Photos/Album3/FOTO_3_${currentImgIdx}.webp`;
-            } 
-            else if (currentAlbum === 4) {
-                if ([13, 14, 16, 17].includes(currentImgIdx)) {
-                    photoPath = `Photos/Album4/FOTO_4_${currentImgIdx}.jpeg`;
-                } else {
-                    photoPath = `Photos/Album4/FOTO_4_${currentImgIdx}.webp`;
-                }
-            }
-            modalImg.src = photoPath;
+            // Buscamos tus 31 fotos nuevas en Album1
+            modalImg.src = `Photos/Album1/FOTO_1_${currentImgIdx}.webp?v=${new Date().getTime()}`;
         }
 
         function expandSlate() {
@@ -179,14 +142,6 @@
         }
 
         function closeModal() { overlay.style.display = 'none'; }
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape") closeModal();
-            if (overlay.style.display === 'flex' && modalImg.style.display === 'block') {
-                if (e.key === "ArrowRight") changeImg(1);
-                if (e.key === "ArrowLeft") changeImg(-1);
-            }
-        });
     </script>
 </body>
 </html>
