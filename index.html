@@ -131,7 +131,7 @@
             updateModalImage();
         }
 
-  function updateModalImage() {
+ function updateModalImage() {
             let photoPath = "";
 
             // --- ÁLBUM 1 (Tus fotos nuevas) ---
@@ -168,6 +168,9 @@
                     photoPath = `Photos/Album4/FOTO_4_${currentImgIdx}.webp`;
                 }
             }
+
+            modalImg.src = photoPath;
+        }
 
             modalImg.src = photoPath;
         }
