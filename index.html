@@ -134,15 +134,10 @@
         function updateModalImage() {
             let photoPath = "";
 
-            // --- ÁLBUM 1 ---
-            if (currentAlbum === 1) {
-                if (currentImgIdx === 3) photoPath = "Photos/Album1/FOTO_1_16.webp";
-                else if (currentImgIdx === 5) photoPath = "Photos/FOTO 1.webp";
-                // CORRECCIÓN FOTO 7: Buscamos en Album1
-                else if (currentImgIdx === 7) photoPath = "Photos/Album1/FOTO_1_7.webp";
-                else if (currentImgIdx === 8) photoPath = "Photos/FOTO 3.webp";
-                else if (currentImgIdx === 12) photoPath = "Photos/FOTO 4.webp";
-                else photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
+           // --- ÁLBUM 1 ---
+        if (currentAlbum === 1) {
+            photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
+        }
             } 
             
             // --- ÁLBUM 2 ---
