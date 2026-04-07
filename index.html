@@ -9,34 +9,54 @@
     <style>
         :root { --primary: #ffffff; --bg: #000000; --accent: #111111; --text-muted: #666666; }
         body { background-color: var(--bg); color: var(--primary); font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center; -webkit-user-select: none; user-select: none; }
+        
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.2em; margin-bottom: 5px; text-transform: uppercase; }
         .subtitle { letter-spacing: 6px; font-size: 0.8em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
+        
+        /* Contenedor de Videos */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 60px; }
         .video-item { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #080808; border-radius: 4px; border: 1px solid #1a1a1a; }
         .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        
+        /* Tarjeta de Perfil (Slate) */
         .slate-card { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(145deg, #0f0f0f, #050505); cursor: pointer; transition: 0.4s ease; }
         .slate-card:hover { border: 1px solid #444; background: #000; }
         .data-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 90%; }
         .mini-val { font-size: 1em; font-weight: bold; color: #fff; }
         .mini-lbl { font-size: 0.45em; color: var(--text-muted); text-transform: uppercase; }
+
+        /* Ajuste de Galería y Portada Vertical */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .album-box { cursor: pointer; transition: 0.4s; position: relative; }
-        .album-box img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s; border: 1px solid #222; }
+        .gallery-grid { display: flex; justify-content: center; max-width: 1200px; margin: 0 auto; }
+        
+        .album-box { cursor: pointer; transition: 0.4s; position: relative; width: 100%; max-width: 350px; }
+        .album-box img { 
+            width: 100%; 
+            height: 500px; /* Altura fija para que se vea vertical */
+            object-fit: cover; 
+            border-radius: 4px; 
+            filter: grayscale(100%); 
+            transition: 0.5s; 
+            border: 1px solid #222; 
+        }
         .album-box:hover img { filter: grayscale(0%); border-color: #fff; transform: scale(1.02); }
-        .album-label { margin-top: 12px; font-size: 0.75em; letter-spacing: 3px; color: #fff; text-transform: uppercase; font-weight: bold; }
+        .album-label { margin-top: 15px; font-size: 0.75em; letter-spacing: 3px; color: #fff; text-transform: uppercase; font-weight: bold; }
+
+        /* Modal / Visualizador */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 85vh; object-fit: contain; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: white; font-size: 30px; cursor: pointer; padding: 20px; transition: 0.3s; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
         .nav-btn:hover { background: rgba(255,255,255,0.3); }
         .prev-btn { left: 20px; }
         .next-btn { right: 20px; }
-        .close-btn { position: absolute; top: 25px; right: 35px; font-size: 45px; color: #fff; cursor: pointer; transition: 0.3s; }
+        .close-btn { position: absolute; top: 25px; right: 35px; font-size: 45px; color: #fff; cursor: pointer; }
+
         #modal-content-wrapper { display: none; background: #000; padding: 40px; border: 1px solid #222; width: 90%; max-width: 800px; color: white; border-radius: 8px; text-align: left; }
         .full-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; margin-top: 30px; }
         .full-item { border-bottom: 1px solid #111; padding-bottom: 10px; }
         .full-val { font-size: 1.4em; font-weight: bold; display: block; }
-        .full-lbl { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+        .full-lbl { font-size: 0.6em; color: #666; text-transform: uppercase; }
+
         footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
         .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
     </style>
@@ -51,6 +71,7 @@
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177479488?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177472533?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
         <div class="video-item"><iframe src="https://player.vimeo.com/video/1177497683?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe></div>
+        
         <div class="video-item" onclick="expandSlate()">
             <div class="slate-card">
                 <div class="data-grid-mini">
@@ -67,7 +88,7 @@
     <div class="gallery-grid">
         <div class="album-box" onclick="openAlbum(1, 31)">
             <img src="Photos/Album1/FOTO_1_1.webp">
-            <div class="album-label">Sesión Principal (31 Fotos)</div>
+            <div class="album-label">Sesión Principal (31 fotos)</div>
         </div>
     </div>
 
@@ -113,7 +134,7 @@
         }
 
         function updateModalImage() {
-            // Buscamos tus 31 fotos nuevas en Album1
+            // Carga las fotos de la carpeta Album1 que acabas de subir
             modalImg.src = `Photos/Album1/FOTO_1_${currentImgIdx}.webp?v=${new Date().getTime()}`;
         }
 
@@ -136,7 +157,7 @@
                 <div style="margin-top:30px; border-top:1px solid #222; padding-top:20px; font-size:0.9em; line-height:1.8">
                     <strong>Nacionalidad:</strong> Colombo-Canadiense<br>
                     <strong>Idiomas:</strong> Español (Nativo) / Inglés (Fluido)<br>
-                    <strong>Edad:</strong> 55 años
+                    <strong>Edad:</strong> 56 años
                 </div>
             `;
         }
