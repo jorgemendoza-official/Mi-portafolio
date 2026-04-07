@@ -131,13 +131,12 @@
             updateModalImage();
         }
 
-        function updateModalImage() {
+     function updateModalImage() {
             let photoPath = "";
 
-           // --- ÁLBUM 1 ---
-        if (currentAlbum === 1) {
-            photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
-        }
+            // --- ÁLBUM 1 ---
+            if (currentAlbum === 1) {
+                photoPath = `Photos/Album1/FOTO_1_${currentImgIdx}.webp`;
             } 
             
             // --- ÁLBUM 2 ---
@@ -153,10 +152,11 @@
             
             // --- ÁLBUM 3 ---
             else if (currentAlbum === 3) {
-                if (currentImgIdx === 8) currentImgIdx = 9;
-                if (currentImgIdx === 19) currentImgIdx = 20;
-                if (currentImgIdx === 31 || currentImgIdx === 32) currentImgIdx = 33;
-                photoPath = `Photos/Album3/FOTO_3_${currentImgIdx}.webp`;
+                let tempIdx = currentImgIdx;
+                if (tempIdx === 8) tempIdx = 9;
+                if (tempIdx === 19) tempIdx = 20;
+                if (tempIdx === 31 || tempIdx === 32) tempIdx = 33;
+                photoPath = `Photos/Album3/FOTO_3_${tempIdx}.webp`;
             } 
             
             // --- ÁLBUM 4 ---
