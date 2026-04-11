@@ -10,14 +10,13 @@
         :root { --primary: #ffffff; --bg: #000000; --accent: #111111; --text-muted: #666666; }
         body { background-color: var(--bg); color: var(--primary); font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center; -webkit-user-select: none; user-select: none; }
         
-        /* Cabecera */
         h1 { font-style: italic; letter-spacing: 4px; font-size: 2.2em; margin-bottom: 5px; text-transform: uppercase; }
         .subtitle { letter-spacing: 6px; font-size: 0.8em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
         
-        /* DISEÑO PRÁCTICO: VIDEO DESTACADO + FICHA TÉCNICA */
+        /* DISEÑO: VIDEO + FICHA TÉCNICA */
         .featured-row {
             display: flex;
-            flex-wrap: wrap; /* Para que sea responsivo en móviles */
+            flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
             gap: 30px;
@@ -25,12 +24,11 @@
             margin: 0 auto 60px;
         }
 
-        /* Video Principal Grande */
         .video-featured {
-            flex: 1; /* Ocupa el espacio disponible */
-            min-width: 300px; /* Ancho mínimo para responsivo */
+            flex: 1;
+            min-width: 300px;
             position: relative;
-            padding-bottom: 45%; /* Relación de aspecto del video grande */
+            padding-bottom: 45%;
             height: 0;
             overflow: hidden;
             background: #080808;
@@ -39,16 +37,15 @@
         }
         .video-featured iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        /* Ficha Técnica Integrada a la Derecha */
         .slate-sidebar {
-            width: 350px; /* Ancho fijo para la ficha */
-            flex-shrink: 0; /* No se encoge */
+            width: 350px;
+            flex-shrink: 0;
             background: linear-gradient(145deg, #0f0f0f, #050505);
             border: 1px solid #222;
             border-radius: 8px;
             padding: 30px;
             text-align: left;
-            box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+            box-sizing: border-box;
         }
         .sidebar-title { font-size: 1.4em; font-style: italic; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; color: #fff; text-align: center;}
         
@@ -65,7 +62,7 @@
         .perfil-info { font-size: 0.8em; line-height: 1.8; color: #ccc;}
         .perfil-info strong { color: #fff; font-weight: bold;}
 
-        /* Galería Vertical Perfecta */
+        /* GALERÍA VERTICAL */
         .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
         .gallery-grid { display: flex; justify-content: center; width: 100%; margin: 0 auto; }
         
@@ -82,7 +79,7 @@
         .album-box:hover img { filter: grayscale(0%); border-color: #fff; transform: scale(1.02); }
         .album-label { margin-top: 15px; font-size: 0.75em; letter-spacing: 3px; color: #fff; text-transform: uppercase; font-weight: bold; }
 
-        /* Modal Visualizador */
+        /* VISUALIZADOR */
         #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
         #modal-image { max-width: 90%; max-height: 85vh; object-fit: contain; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: white; font-size: 30px; cursor: pointer; padding: 20px; transition: 0.3s; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
@@ -90,6 +87,7 @@
         .prev-btn { left: 20px; }
         .next-btn { right: 20px; }
         .close-btn { position: absolute; top: 25px; right: 35px; font-size: 45px; color: #fff; cursor: pointer; }
+        
         footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
         .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
     </style>
@@ -117,16 +115,16 @@
             <div class="perfil-info">
                 <strong>Nacionalidad:</strong> Colombo-Canadiense<br>
                 <strong>Idiomas:</strong> Español (Nativo) / Inglés (Fluido)<br>
-                <strong>Edad:</strong> 56 años
+                <strong>Edad:</strong> 65 años
             </div>
         </div>
     </div>
 
     <div class="gallery-title">Book Actoral</div>
     <div class="gallery-grid">
-        <div class="album-box" onclick="openAlbum(1, 31)">
+        <div class="album-box" onclick="openAlbum(1, 20)">
             <img src="Photos/Album1/FOTO_1_1.webp">
-            <div class="album-label">Sesión Principal (31 fotos)</div>
+            <div class="album-label">Sesión Principal (20 fotos)</div>
         </div>
     </div>
 
@@ -138,13 +136,13 @@
     </div>
 
     <footer>
-        <a href="mailto:contacto.mendozavoiceover@gmail.com" class="contact-mail">contacto.jorgemendoza@gmail.com</a>
+        <a href="mailto:contacto.jorgenaranjo@gmail.com" class="contact-mail">contacto.jorgenaranjo@gmail.com</a>
         <p>&copy; 2026 Jorge Mendoza</p>
     </footer>
 
     <script>
         let currentImgIdx = 1;
-        let maxImgs = 31;
+        let maxImgs = 20; 
         const overlay = document.getElementById('modal-overlay');
         const modalImg = document.getElementById('modal-image');
         const btnPrev = document.getElementById('btn-prev');
