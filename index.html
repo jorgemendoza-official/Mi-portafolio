@@ -3,52 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>JORGE MENDOZA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; }
+        /* --- PANEL DE COLORES (Edita aquí para cambiar el tono de las letras) --- */
+        :root {
+            --color-claro: #a6a6a6;  /* Brillo superior */
+            --color-medio: #595959;  /* Tono medio */
+            --color-oscuro: #262626; /* Sombra inferior */
+        }
+
+        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; }
         
-        /* BLOQUE IZQUIERDO: Aquí va el nombre */
-        .header-left { text-align: left; margin-bottom: 30px; }
+        /* Efecto Metálico 3D que usa el Panel de Colores de arriba */
+        .metallic {
+            font-family: sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, var(--color-claro), var(--color-medio), var(--color-oscuro));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+        }
+
+        .header-left { padding: 30px 40px; text-align: left; }
         .name { font-size: 2rem; margin: 0; }
-        .sub { color: #888; font-size: 0.9rem; letter-spacing: 1px; margin: 0; }
+        .sub { color: #888; font-size: 0.7rem; letter-spacing: 2px; margin-top: 5px; }
         
-        /* BLOQUE CENTRAL: Todo lo demás */
-        .content-center { text-align: center; }
-        .hero-img { width: 100%; max-width: 400px; margin: 20px auto; display: block; }
+        .hero { text-align: center; margin-top: 10px; }
+        .hero-img { width: 100%; max-width: 350px; } 
+        
+        .content { max-width: 600px; margin: 20px auto; text-align: center; }
+        video { width: 100%; max-height: 250px; border: 1px solid #333; background: #000; }
+        
+        /* Contenedor Vimeo */
         .vimeo-wrapper { 
             position: relative; width: 100%; aspect-ratio: 16 / 9; 
             margin: 20px auto; border: 1px solid #333; overflow: hidden; background: #000; 
-            display: block; 
         }
         .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .link-text { display: block; margin: 15px auto; color: #aaa; text-decoration: none; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
-        #biografia-text { display: none; color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-top: 10px; }
+        
+        .link-text { cursor: pointer; text-decoration: none; display: block; margin: 15px 0; font-size: 1.2rem; }
+        #biografia-text { display: none; color: #ccc; font-size: 0.85rem; margin-top: 10px; padding: 0 20px; line-height: 1.5; }
+        
+        footer { padding: 20px; text-align: center; }
+        .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header-left">
-            <h1 class="name">JORGE MENDOZA</h1>
-            <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
-        </div>
+<div class="header-left">
+    <h1 class="name metallic">JORGE MENDOZA</h1>
+    <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
+</div>
 
-        <div class="content-center">
-            <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
+<div class="hero">
+    <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
+</div>
 
-            <div class="vimeo-wrapper">
-                <iframe src="https://player.vimeo.com/video/1194899790?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
+<div class="content">
+    <video controls>
+        <source src="videos/Video Uno.mp4" type="video/mp4">
+    </video>
 
-            <a href="#" class="link-text" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
-            <div id="biografia-text">
-                <p>Soy un actor colombo-canadiense con residencia compartida entre las ciudades de Bogotá y Toronto, lo que me otorga una total flexibilidad y disponibilidad geográfica para incorporarme a proyectos audiovisuales en ambos mercados de manera inmediata. Mi experiencia cinematográfica se ha consolidado en los últimos tres años...</p>
-            </div>
-
-            <a href="#" class="link-text">GALERÍA</a>
-            <a href="mailto:tu-email@ejemplo.com" class="link-text">CONTACTO</a>
-        </div>
+    <div class="vimeo-wrapper">
+        <iframe src="https://player.vimeo.com/video/1194899790?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Jorge Mendoza_Reel"></iframe>
     </div>
+</div>
+
+<footer>
+    <div class="footer-brand">JORGE MENDOZA | PROFESSIONAL ACTOR</div>
+</footer>
 
 </body>
 </html>
