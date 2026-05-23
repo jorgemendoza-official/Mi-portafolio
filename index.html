@@ -2,148 +2,82 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Mendoza | Actor</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <title>JORGE MENDOZA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        :root { --primary: #ffffff; --bg: #000000; --accent: #111111; --text-muted: #666666; }
-        body { background-color: var(--bg); color: var(--primary); font-family: 'Playfair Display', serif; margin: 0; padding: 20px; text-align: center; -webkit-user-select: none; user-select: none; }
-        
-        h1 { font-style: italic; letter-spacing: 4px; font-size: 2.2em; margin-bottom: 5px; text-transform: uppercase; }
-        .subtitle { letter-spacing: 6px; font-size: 0.8em; text-transform: uppercase; margin-bottom: 40px; color: var(--text-muted); }
-        
-        /* VIDEO Y FICHA */
-        .featured-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 30px; max-width: 1200px; margin: 0 auto 40px; }
-        .video-featured { flex: 1; min-width: 300px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #080808; border-radius: 4px; border: 1px solid #1a1a1a; }
-        .video-featured iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .slate-sidebar { width: 350px; flex-shrink: 0; background: linear-gradient(145deg, #0f0f0f, #050505); border: 1px solid #222; border-radius: 8px; padding: 30px; text-align: left; box-sizing: border-box; }
-        .sidebar-title { font-size: 1.4em; font-style: italic; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid #222; padding-bottom: 10px; color: #fff; text-align: center;}
-        .full-grid-sidebar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
-        .full-item { border-bottom: 1px solid #111; padding-bottom: 10px; text-align: center; }
-        .full-val { font-size: 1.2em; font-weight: bold; display: block; color: #fff;}
-        .full-lbl { font-size: 0.55em; color: #666; text-transform: uppercase; letter-spacing: 1px;}
-        .perfil-info { font-size: 0.8em; line-height: 1.8; color: #ccc;}
-        .perfil-info strong { color: #fff; font-weight: bold;}
+        /* --- PANEL DE COLORES (Edita aquí para cambiar el tono de las letras) --- */
+        :root {
+            --color-claro: #a6a6a6;  /* Brillo superior */
+            --color-medio: #595959;  /* Tono medio */
+            --color-oscuro: #262626; /* Sombra inferior */
+        }
 
-        /* BIOGRAFÍA PROFESIONAL */
-        .bio-container { max-width: 1200px; margin: 0 auto 20px; text-align: left; background: #050505; border: 1px solid #161616; border-radius: 6px; padding: 40px; box-sizing: border-box; }
-        .bio-title { font-style: italic; font-size: 1.6em; margin-top: 0; margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #161616; padding-bottom: 15px; text-align: center; }
-        .bio-text p { font-size: 0.95em; line-height: 1.9; color: #b3b3b3; margin-bottom: 20px; text-align: justify; text-justify: inter-word; }
-        .bio-text p:last-child { margin-bottom: 0; }
-        .bio-text strong { color: #fff; font-weight: normal; font-style: italic; }
-
-        /* GALERÍA */
-        .gallery-title { font-style: italic; font-size: 1.8em; margin: 60px 0 30px; border-top: 1px solid #222; padding-top: 40px; }
-        .gallery-grid { display: flex; justify-content: center; width: 100%; margin: 0 auto; }
-        .album-box { cursor: pointer; width: 320px; text-align: center; }
-        .album-box img { width: 320px; height: 480px; object-fit: cover; border-radius: 4px; filter: grayscale(100%); transition: 0.5s; border: 1px solid #222; }
-        .album-box:hover img { filter: grayscale(0%); border-color: #fff; transform: scale(1.02); }
-        .album-label { margin-top: 15px; font-size: 0.75em; letter-spacing: 3px; color: #fff; text-transform: uppercase; font-weight: bold; }
-
-        /* MODAL */
-        #modal-overlay { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); align-items: center; justify-content: center; }
-        #modal-image { max-width: 90%; max-height: 85vh; object-fit: contain; }
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: white; font-size: 30px; cursor: pointer; padding: 20px; transition: 0.3s; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
-        .nav-btn:hover { background: rgba(255,255,255,0.3); }
-        .prev-btn { left: 20px; }
-        .next-btn { right: 20px; }
-        .close-btn { position: absolute; top: 25px; right: 35px; font-size: 45px; color: #fff; cursor: pointer; }
+        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; }
         
-        footer { margin-top: 100px; padding-bottom: 50px; color: #444; }
-        .contact-mail { color: #fff; text-decoration: none; font-size: 1.1em; letter-spacing: 2px; }
+        /* Efecto Metálico 3D que usa el Panel de Colores de arriba */
+        .metallic {
+            font-family: sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, var(--color-claro), var(--color-medio), var(--color-oscuro));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+        }
+
+        .header-left { padding: 30px 40px; text-align: left; }
+        .name { font-size: 2rem; margin: 0; }
+        .sub { color: #888; font-size: 0.7rem; letter-spacing: 2px; margin-top: 5px; }
+        
+        .hero { text-align: center; margin-top: 10px; }
+        .hero-img { width: 100%; max-width: 350px; } 
+        
+        .content { max-width: 600px; margin: 20px auto; text-align: center; }
+        video { width: 100%; max-height: 250px; border: 1px solid #333; background: #000; }
+        
+        .link-text { cursor: pointer; text-decoration: none; display: block; margin: 15px 0; font-size: 1.2rem; }
+        #biografia-text { display: none; color: #ccc; font-size: 0.85rem; margin-top: 10px; padding: 0 20px; line-height: 1.5; }
+        
+        footer { padding: 20px; text-align: center; }
+        .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <h1>Jorge Mendoza</h1>
-    <p class="subtitle">ACTOR</p>
+<div class="header-left">
+    <h1 class="name metallic">JORGE MENDOZA</h1>
+    <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
+</div>
 
-    <div class="featured-row">
-        <div class="video-featured">
-            <iframe src="https://player.vimeo.com/video/1174518952?title=0&byline=0&portrait=0" allow="autoplay; fullscreen"></iframe>
-        </div>
-        
-        <div class="slate-sidebar">
-            <h2 class="sidebar-title">Ficha Técnica</h2>
-            <div class="full-grid-sidebar">
-                <div class="full-item"><span class="full-val">168cm</span><span class="full-lbl">Estatura</span></div>
-                <div class="full-item"><span class="full-val">67.5kg</span><span class="full-lbl">Peso</span></div>
-                <div class="full-item"><span class="full-val">Verdes</span><span class="full-lbl">Ojos</span></div>
-                <div class="full-item"><span class="full-val">M</span><span class="full-lbl">Camisa</span></div>
-                <div class="full-item"><span class="full-val">29-30</span><span class="full-lbl">Pantalón</span></div>
-                <div class="full-item"><span class="full-val">39</span><span class="full-lbl">Calzado</span></div>
-            </div>
-            <div class="perfil-info">
-                <strong>Nacionalidad:</strong> Colombo-Canadiense<br>
-                <strong>Idiomas:</strong> Español (Nativo) / Inglés (Fluido)<br>
-                <strong>Edad:</strong> 57 años
-            </div>
-        </div>
+<div class="hero">
+    <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
+</div>
+
+<div class="content">
+    <video controls>
+        <source src="videos/Video Uno.mp4" type="video/mp4">
+    </video>
+    
+    <a href="#" class="link-text metallic" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
+    <div id="biografia-text">
+        <p>Soy un actor colombo-canadiense con residencia compartida entre las ciudades de Bogotá y Toronto, lo que me otorga una total flexibilidad y disponibilidad geográfica para incorporarme a proyectos audiovisuales en ambos mercados de manera inmediata. Mi experiencia cinematográfica se ha consolidado en el circuito independiente de Canadá, donde durante los últimos tres años he participado activamente en numerosos cortometrajes de ficción. Cuento con pasaportes vigentes de Colombia y Canadá. Con un perfil maduro de 57 años y bilingüismo absoluto, me presento ante el mercado hispanoamericano como una propuesta artística fresca, técnica y rigurosa en pantalla.</p>
     </div>
 
-    <!-- SECCIÓN DE BIOGRAFÍA PROFESIONAL -->
-    <div class="bio-container">
-        <h2 class="bio-title">Trayectoria Profesional</h2>
-        <div class="bio-text">
-            <p>
-                Soy un actor colombo-canadiense con residencia compartida entre las ciudades de <strong>Bogotá y Toronto</strong>, lo que me otorga una total flexibilidad y disponibilidad geográfica para incorporarme a proyectos audiovisuales en ambos mercados de manera inmediata.
-            </p>
-            <p>
-                Mi experiencia cinematográfica se ha consolidado en el circuito independiente de Canadá, donde durante los últimos tres años he participado activamente en numerosos cortometrajes de ficción, colaborando estrechamente con realizadores y producciones de la prestigiosa <em>Toronto Film School</em>. Dentro de mi filmografía reciente en Toronto destacan títulos como <strong>"Poema a la muerte"</strong>, <strong>"Adriano"</strong> y <strong>"Digital Shadow"</strong>. Previamente, inicié mi recorrido profesional en los Estados Unidos, trabajando en proyectos en las ciudades de Nueva York y Florida, mercado donde obtuve mi estatus como miembro activo del sindicato norteamericano de actores <strong>SAG-AFTRA</strong>.
-            </p>
-            <p>
-                A mi formación en pantalla se suma un profundo bagaje en el área del radioteatro. Esta experiencia previa me ha brindado un riguroso dominio interpretativo de la voz, el control orgánico de la respiración frente al micrófono y una sólida comprensión del ritmo y la continuidad emocional, herramientas que traduzco de forma directa en mi trabajo frente a la cámara.
-            </p>
-            <p>
-                Al ser ciudadano de ambas naciones, cuento con <strong>pasaportes vigentes de Colombia y Canadá</strong>, lo cual elimina barreras de visado y facilita los traslados logísticos para producciones internacionales. Con un perfil maduro de 57 años y bilingüismo absoluto (español e inglés), me presento ante el mercado hispanoamericano como una propuesta artística fresca, técnica y rigurosa en pantalla.
-            </p>
-        </div>
-    </div>
-
-    <div class="gallery-title">Book Actoral</div>
-    <div class="gallery-grid">
-        <div class="album-box" onclick="openAlbum(1, 20)">
-            <img src="Photos/Album1/FOTO_1_1.webp">
-            <div class="album-label">Sesión Principal (20 fotos)</div>
-        </div>
-    </div>
-
-    <div id="modal-overlay">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <button id="btn-prev" class="nav-btn prev-btn" onclick="changeImg(-1)">&#10094;</button>
-        <img id="modal-image" src="">
-        <button id="btn-next" class="nav-btn next-btn" onclick="changeImg(1)">&#10095;</button>
-    </div>
-
-    <footer>
-        <a href="mailto:contacto.mendozavoiceover@gmail.com" class="contact-mail">contacto.mendozavoiceover@gmail.com</a>
-        <p>&copy; 2026 Jorge Mendoza</p>
-    </footer>
-
+    <a href="Photos/Album1/FOTO_1_2.webp" data-lightbox="galeria" class="link-text metallic">GALERÍA</a>
+    
     <script>
-        let currentImgIdx = 1;
-        let maxImgs = 20; 
-
-        function openAlbum(num, total) {
-            currentImgIdx = 1;
-            maxImgs = total;
-            document.getElementById('modal-overlay').style.display = 'flex';
-            updateModalImage();
+        for (let i = 3; i <= 20; i++) {
+            document.write(`<a href="Photos/Album1/FOTO_1_${i}.webp" data-lightbox="galeria" style="display:none;"></a>`);
         }
-
-        function changeImg(step) {
-            currentImgIdx += step;
-            if (currentImgIdx > maxImgs) currentImgIdx = 1;
-            if (currentImgIdx < 1) currentImgIdx = maxImgs;
-            updateModalImage();
-        }
-
-        function updateModalImage() {
-            document.getElementById('modal-image').src = `Photos/Album1/FOTO_1_${currentImgIdx}.webp?v=${new Date().getTime()}`;
-        }
-
-        function closeModal() { document.getElementById('modal-overlay').style.display = 'none'; }
     </script>
+</div>
+
+<footer>
+    <a href="mailto:mendozavoiceover@gmail.com" class="link-text metallic">CONTACTO</a>
+    <div class="footer-brand">Actor's Access</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
