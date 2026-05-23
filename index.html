@@ -46,22 +46,19 @@
         footer { padding: 20px; text-align: center; }
         .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
 .vimeo-wrapper { 
-    padding: 56.25% 0 0 0; 
-    position: relative; 
-    border: 1px solid #333; 
-    margin: 20px auto; 
-    max-width: 600px; 
-}
-.vimeo-wrapper { 
     position: relative; 
     width: 100%; 
     max-width: 600px; 
-    height: 340px;    
+    padding-bottom: 56.25%; 
+    height: 0; 
     margin: 20px auto; 
     border: 1px solid #333; 
-    overflow: hidden;
+    overflow: hidden; 
 }
 .vimeo-wrapper iframe { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
     width: 100%; 
     height: 100%; 
 }
