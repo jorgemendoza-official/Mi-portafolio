@@ -4,70 +4,30 @@
     <meta charset="UTF-8">
     <title>JORGE MENDOZA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <style>
-        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; }
-        
-        /* Efecto Metálico 3D Corregido y Legible */
-        .metallic {
-            font-family: sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            
-            /* Color de base plata/cromo claro para legibilidad */
-            color: #d1d1d1; 
-            
-            /* Sombra compleja para el efecto 3D */
-            text-shadow: 
-                -1px -1px 0px #fff,  /* Brillo superior */
-                1px 1px 0px #000,    /* Sombra profunda */
-                0px 2px 2px #000,    /* Sombra de relieve */
-                0px 4px 10px rgba(0,0,0,0.5); /* Sombra suave */
-            
-            /* Degradado metálico (Sutil para no perder legibilidad) */
-            background: linear-gradient(to bottom, #f0f0f0 0%, #a0a0a0 50%, #666 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent; /* Mantiene el degradado visible */
-        }
+   <style>
+    /* Estilos generales de diseño */
+    body { text-align: center; color: #fff; }
+    .metallic { color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
+    
+    /* Contenedor principal para limitar el ancho y centrar todo */
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    
+    /* Estilo del video */
+    .vimeo-wrapper { 
+        position: relative; 
+        width: 100%; 
+        aspect-ratio: 16 / 9; 
+        margin: 20px auto; 
+        border: 1px solid #333; 
+        overflow: hidden;
+        background: #000;
+    }
+    .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .header-left { padding: 30px 40px; text-align: left; }
-        .name { font-size: 2rem; margin: 0; }
-        .sub { color: #888; font-size: 0.7rem; letter-spacing: 2px; }
-        
-        .hero { text-align: center; margin-top: 10px; }
-        .hero-img { width: 100%; max-width: 350px; } 
-        
-        .content { max-width: 600px; margin: 20px auto; text-align: center; }
-        video { width: 100%; max-height: 250px; border: 1px solid #333; background: #000; }
-        
-        .link-text { cursor: pointer; text-decoration: none; display: block; margin: 15px 0; font-size: 1.2rem; }
-        #biografia-text { display: none; color: #ccc; font-size: 0.85rem; margin-top: 10px; padding: 0 20px; line-height: 1.5; }
-        
-        footer { padding: 20px; text-align: center; }
-        .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
-.vimeo-wrapper { 
-    position: relative; 
-    width: 100%; 
-    max-width: 600px; 
-    margin: 20px auto; 
-    border: 1px solid #333; 
-    overflow: hidden;
-    /* Esta línea es la clave para que la caja se ajuste sola al video */
-    aspect-ratio: 16 / 9; 
-    background: #000;
-}
-.vimeo-wrapper iframe { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-}.link-text {
-    display: block;
-    text-align: center;
-    margin: 20px auto;
-}
-    </style>
+    /* Estilo de los enlaces y biografía */
+    .link-text { display: block; margin: 20px auto; cursor: pointer; text-decoration: none; font-size: 1.2rem; }
+    #biografia-text { display: none; color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-top: 10px; }
+</style>
 </head>
 <body>
 
