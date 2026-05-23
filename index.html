@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <title>JORGE MENDOZA</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; }
+        body { background-color: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
         
-        /* El contenedor principal ya NO tiene text-align: center */
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        
-        /* El nombre se alinea a la izquierda por defecto */
-        .header-left { margin-bottom: 30px; text-align: left; }
-        .name { font-size: 2rem; margin: 0; color: #fff; }
+        /* BLOQUE IZQUIERDO: Aquí va el nombre */
+        .header-left { text-align: left; margin-bottom: 30px; }
+        .name { font-size: 2rem; margin: 0; }
         .sub { color: #888; font-size: 0.9rem; letter-spacing: 1px; margin: 0; }
         
-        /* Todo lo demás lo centramos individualmente con margin: auto */
+        /* BLOQUE CENTRAL: Todo lo demás */
+        .content-center { text-align: center; }
         .hero-img { width: 100%; max-width: 400px; margin: 20px auto; display: block; }
-        
         .vimeo-wrapper { 
             position: relative; width: 100%; aspect-ratio: 16 / 9; 
             margin: 20px auto; border: 1px solid #333; overflow: hidden; background: #000; 
             display: block; 
         }
         .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        .link-text { display: block; margin: 15px auto; color: #aaa; text-decoration: none; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; text-align: center; }
+        .link-text { display: block; margin: 15px auto; color: #aaa; text-decoration: none; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; }
         #biografia-text { display: none; color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-top: 10px; }
     </style>
 </head>
@@ -36,19 +33,21 @@
             <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
         </div>
 
-        <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
+        <div class="content-center">
+            <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
 
-        <div class="vimeo-wrapper">
-            <iframe src="https://player.vimeo.com/video/1194899790?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <div class="vimeo-wrapper">
+                <iframe src="https://player.vimeo.com/video/1194899790?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+
+            <a href="#" class="link-text" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
+            <div id="biografia-text">
+                <p>Soy un actor colombo-canadiense con residencia compartida entre las ciudades de Bogotá y Toronto, lo que me otorga una total flexibilidad y disponibilidad geográfica para incorporarme a proyectos audiovisuales en ambos mercados de manera inmediata. Mi experiencia cinematográfica se ha consolidado en los últimos tres años...</p>
+            </div>
+
+            <a href="#" class="link-text">GALERÍA</a>
+            <a href="mailto:tu-email@ejemplo.com" class="link-text">CONTACTO</a>
         </div>
-
-        <a href="#" class="link-text" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
-        <div id="biografia-text">
-            <p>Soy un actor colombo-canadiense con residencia compartida entre las ciudades de Bogotá y Toronto, lo que me otorga una total flexibilidad y disponibilidad geográfica para incorporarme a proyectos audiovisuales en ambos mercados de manera inmediata. Mi experiencia cinematográfica se ha consolidado en los últimos tres años...</p>
-        </div>
-
-        <a href="#" class="link-text">GALERÍA</a>
-        <a href="mailto:tu-email@ejemplo.com" class="link-text">CONTACTO</a>
     </div>
 
 </body>
