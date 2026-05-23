@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>JORGE MENDOZA</title>
+    <!-- CSS de Lightbox -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        /* --- PANEL DE COLORES (Edita aquí para cambiar el tono de las letras) --- */
         :root {
-            --color-claro: #a6a6a6;  /* Brillo superior */
-            --color-medio: #595959;  /* Tono medio */
-            --color-oscuro: #262626; /* Sombra inferior */
+            --color-claro: #a6a6a6;
+            --color-medio: #595959;
+            --color-oscuro: #262626;
         }
 
         body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; }
         
-        /* Efecto Metálico 3D que usa el Panel de Colores de arriba */
         .metallic {
-            font-family: sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-family: sans-serif; font-weight: 800; text-transform: uppercase;
             background: linear-gradient(to bottom, var(--color-claro), var(--color-medio), var(--color-oscuro));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
         }
 
         .header-left { padding: 30px 40px; text-align: left; }
@@ -43,8 +38,9 @@
         }
         .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
-        .link-text { cursor: pointer; text-decoration: none; display: block; margin: 15px 0; font-size: 1.2rem; }
-        #biografia-text { display: none; color: #ccc; font-size: 0.85rem; margin-top: 10px; padding: 0 20px; line-height: 1.5; }
+        /* Galería */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; padding: 20px; max-width: 600px; margin: 0 auto; }
+        .gallery img { width: 100%; height: auto; border: 1px solid #333; display: block; }
         
         footer { padding: 20px; text-align: center; }
         .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
@@ -52,28 +48,39 @@
 </head>
 <body>
 
-<div class="header-left">
-    <h1 class="name metallic">JORGE MENDOZA</h1>
-    <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
-</div>
-
-<div class="hero">
-    <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
-</div>
-
-<div class="content">
-    <video controls>
-        <source src="videos/Video Uno.mp4" type="video/mp4">
-    </video>
-
-    <div class="vimeo-wrapper">
-        <iframe src="https://player.vimeo.com/video/1194899790?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Jorge Mendoza_Reel"></iframe>
+    <div class="header-left">
+        <h1 class="name metallic">JORGE MENDOZA</h1>
+        <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA | SAG-AFTRA MEMBER</p>
     </div>
-</div>
 
-<footer>
-    <div class="footer-brand">JORGE MENDOZA | PROFESSIONAL ACTOR</div>
-</footer>
+    <div class="hero">
+        <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
+    </div>
+
+    <div class="content">
+        <!-- Video Local -->
+        <video controls>
+            <source src="videos/Video Uno.mp4" type="video/mp4">
+        </video>
+
+        <!-- Video Vimeo -->
+        <div class="vimeo-wrapper">
+            <iframe src="https://player.vimeo.com/video/1194899790?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Jorge Mendoza_Reel"></iframe>
+        </div>
+    </div>
+
+    <!-- Galería -->
+    <div class="gallery">
+        <a href="Photos/Album1/FOTO_1_1.webp" data-lightbox="galeria"><img src="Photos/Album1/FOTO_1_1.webp" alt="Foto 1"></a>
+        <!-- Añade más fotos aquí -->
+    </div>
+
+    <!-- Script de Lightbox al final para asegurar que cargue después de todo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
+    <footer>
+        <div class="footer-brand">JORGE MENDOZA | PROFESSIONAL ACTOR</div>
+    </footer>
 
 </body>
 </html>
