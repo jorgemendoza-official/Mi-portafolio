@@ -5,30 +5,34 @@
     <title>JORGE MENDOZA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
-        /* --- PANEL DE COLORES (Edita aquí para cambiar el tono de las letras) --- */
-        :root {
-            --color-claro: #a6a6a6;  /* Brillo superior */
-            --color-medio: #595959;  /* Tono medio */
-            --color-oscuro: #262626; /* Sombra inferior */
-        }
-
         body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; }
         
-        /* Efecto Metálico 3D que usa el Panel de Colores de arriba */
+        /* Efecto Metálico 3D Corregido y Legible */
         .metallic {
             font-family: sans-serif;
             font-weight: 800;
             text-transform: uppercase;
-            background: linear-gradient(to bottom, var(--color-claro), var(--color-medio), var(--color-oscuro));
+            
+            /* Color de base plata/cromo claro para legibilidad */
+            color: #d1d1d1; 
+            
+            /* Sombra compleja para el efecto 3D */
+            text-shadow: 
+                -1px -1px 0px #fff,  /* Brillo superior */
+                1px 1px 0px #000,    /* Sombra profunda */
+                0px 2px 2px #000,    /* Sombra de relieve */
+                0px 4px 10px rgba(0,0,0,0.5); /* Sombra suave */
+            
+            /* Degradado metálico (Sutil para no perder legibilidad) */
+            background: linear-gradient(to bottom, #f0f0f0 0%, #a0a0a0 50%, #666 100%);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+            color: transparent; /* Mantiene el degradado visible */
         }
 
         .header-left { padding: 30px 40px; text-align: left; }
         .name { font-size: 2rem; margin: 0; }
-        .sub { color: #888; font-size: 0.7rem; letter-spacing: 2px; margin-top: 5px; }
+        .sub { color: #888; font-size: 0.7rem; letter-spacing: 2px; }
         
         .hero { text-align: center; margin-top: 10px; }
         .hero-img { width: 100%; max-width: 350px; } 
@@ -41,6 +45,8 @@
         
         footer { padding: 20px; text-align: center; }
         .footer-brand { color: #444; font-size: 0.7rem; margin-top: 10px; }
+.vimeo-wrapper { padding: 56.25% 0 0 0; position: relative; border: 1px solid #333; margin-bottom: 20px; }
+.vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
@@ -54,10 +60,9 @@
     <img src="Photos/Album1/FOTO_1_1.webp" alt="Jorge Mendoza" class="hero-img">
 </div>
 
-<div class="content">
-    <video controls>
-        <source src="videos/Video Uno.mp4" type="video/mp4">
-    </video>
+<div class="vimeo-wrapper">
+    <iframe src="https://player.vimeo.com/video/1194899790?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
     
     <a href="#" class="link-text metallic" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
     <div id="biografia-text">
