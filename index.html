@@ -4,27 +4,45 @@
     <meta charset="UTF-8">
     <title>JORGE MENDOZA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-   <style>
-    /* Estilos generales de diseño */
-    body { text-align: center; color: #fff; }
+ <style>
+    /* 1. Fondo negro para toda la página */
+    body { 
+        background-color: #000; 
+        color: #fff; 
+        text-align: center; 
+        font-family: sans-serif; 
+        margin: 0; 
+        padding: 0; 
+    }
+    
+    /* 2. El contenedor que mantiene todo centrado y a 600px */
+    .container { 
+        max-width: 600px; 
+        margin: 0 auto; 
+        padding: 20px; 
+    }
+
+    /* 3. Estilos de tus elementos */
     .metallic { color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
+    .hero-img { width: 100%; max-width: 400px; margin-bottom: 20px; }
     
-    /* Contenedor principal para limitar el ancho y centrar todo */
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    
-    /* Estilo del video */
     .vimeo-wrapper { 
         position: relative; 
         width: 100%; 
         aspect-ratio: 16 / 9; 
         margin: 20px auto; 
         border: 1px solid #333; 
-        overflow: hidden;
-        background: #000;
+        overflow: hidden; 
+        background: #000; 
     }
-    .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .vimeo-wrapper iframe { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+    }
 
-    /* Estilo de los enlaces y biografía */
     .link-text { display: block; margin: 20px auto; cursor: pointer; text-decoration: none; font-size: 1.2rem; }
     #biografia-text { display: none; color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-top: 10px; }
 </style>
