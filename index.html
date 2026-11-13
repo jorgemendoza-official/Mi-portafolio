@@ -2,39 +2,52 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>JORGE MENDOZA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JORGE MENDOZA | Bilingual Actor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 <style>
     body { background-color: #000; color: #fff; text-align: center; font-family: sans-serif; margin: 0; padding: 0; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
     
-    .header-left { margin-bottom: 20px; }
-    .name { font-size: 2rem; margin: 0; }
-    .sub { color: #888; font-size: 0.9rem; letter-spacing: 1px; }
+    .header-left { margin-bottom: 15px; }
+    .name { font-size: 2rem; margin: 0; letter-spacing: 2px; }
+    .sub { color: #888; font-size: 0.85rem; letter-spacing: 1.5px; margin-top: 6px; }
     
-    .hero-img { width: 100%; max-width: 400px; margin: 20px auto; display: block; }
-    
+    .reel-label {
+        color: #aaa;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 20px 0 8px 0;
+    }
+
     .vimeo-wrapper { 
         position: relative; width: 100%; aspect-ratio: 16 / 9; 
-        margin: 20px auto; border: 1px solid #333; overflow: hidden; background: #000; 
+        margin: 0 auto 25px auto; border: 1px solid #333; overflow: hidden; background: #000; 
     }
     .vimeo-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    /* Estilos del nuevo menú horizontal */
+    .hero-img { width: 100%; max-width: 380px; margin: 25px auto; display: block; border: 1px solid #222; }
+
+    /* Estilos del menú horizontal */
     .menu-nav {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 30px auto;
+        margin: 25px auto;
         flex-wrap: wrap;
     }
     .menu-nav .link-text {
         color: #aaa;
         text-decoration: none;
-        font-size: 1.1rem;
+        font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 2px;
         padding: 10px;
+        transition: color 0.3s ease;
+    }
+    .menu-nav .link-text:hover {
+        color: #fff;
     }
     .menu-nav .separador {
         color: #444;
@@ -43,25 +56,33 @@
         margin: 0 5px;
     }
 
-    #biografia-text { display: none; color: #ccc; font-size: 0.9rem; line-height: 1.6; text-align: justify; margin-top: 10px; }
+    #biografia-text { 
+        display: none; 
+        color: #ccc; 
+        font-size: 0.9rem; 
+        line-height: 1.6; 
+        text-align: justify; 
+        margin-top: 15px; 
+        padding: 0 10px;
+    }
 </style>
 </head>
 <body>
     <div class="container">
         <div class="header-left">
             <h1 class="name metallic">JORGE MENDOZA</h1>
-            <p class="sub">BILINGUAL ACTOR | COLOMBIA/CANADA </p>
+            <p class="sub">BILINGUAL ACTOR | BOGOTÁ · TORONTO · NEW YORK</p>
         </div>
 
-        <img src="Photos/Album1/FOTO_1_15.webp" alt="Jorge Mendoza" class="hero-img">
+        <!-- 1. PRIMERO EL REEL CON SLATE -->
+        <p class="reel-label">ACTING REEL &amp; SLATE (ES / EN)</p>
+        <div class="vimeo-wrapper">
+            <iframe src="https://player.vimeo.com/video/1219900132" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
 
-       <div class="vimeo-wrapper">
-   <iframe src="https://player.vimeo.com/video/1219900132" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-        <!-- Menú de navegación horizontal -->
+        <!-- 2. MENÚ DE NAVEGACIÓN -->
         <nav class="menu-nav">
-            <a href="#" class="link-text" onclick="document.getElementById('biografia-text').style.display='block'; return false;">BIOGRAFÍA</a>
+            <a href="#" class="link-text" onclick="var bio = document.getElementById('biografia-text'); bio.style.display = (bio.style.display === 'block') ? 'none' : 'block'; return false;">BIOGRAFÍA</a>
             <span class="separador">|</span>
             <a href="Photos/Album1/FOTO_1_1.webp" data-lightbox="galeria" class="link-text">GALERÍA</a>
             <span class="separador">|</span>
@@ -69,38 +90,41 @@
         </nav>
 
         <div id="biografia-text">
-            <p>Soy un actor colombo-canadiense con residencia entre Bogotá y Toronto, lo que me permite disponibilidad y flexibilidad para participar en proyectos audiovisuales en ambos mercados.
-
-Mi experiencia en cine comenzó en Toronto, donde he participado en numerosos cortometrajes vinculados a proyectos de la Toronto Film School, consolidando en los últimos tres años un crecimiento constante frente a cámara y una formación práctica en rodajes independientes y académicos.
-
-Cuento con experiencia reciente en set, adaptación a distintos estilos de dirección y enfoque profesional orientado al trabajo colaborativo y la ejecución eficiente en producción.</p>
+            <p>Soy un actor colombo-canadiense completamente bilingüe (español e inglés) con residencia entre Bogotá, Toronto y Nueva York, lo que me permite disponibilidad y flexibilidad para participar en proyectos audiovisuales tanto en Latinoamérica como en Norteamérica.</p>
+            <p>Mi experiencia en cine comenzó en Toronto, donde he participado en numerosos cortometrajes vinculados a proyectos de la Toronto Film School, consolidando en los últimos tres años un crecimiento constante frente a cámara y una formación práctica en rodajes independientes y académicos.</p>
+            <p>Cuento con experiencia reciente en set, adaptación a distintos estilos de dirección y enfoque profesional orientado al trabajo colaborativo y la ejecución eficiente en producción.</p>
         </div>
 
-<div style="display:none;">
-    <a href="Photos/Album1/FOTO_1_2.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_3.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_4.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_5.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_6.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_7.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_8.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_9.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_10.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_11.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_12.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_13.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_14.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_15.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_16.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_17.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_18.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_20.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_21.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_22.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_23.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_24.webp" data-lightbox="galeria"></a>
-    <a href="Photos/Album1/FOTO_1_25.webp" data-lightbox="galeria"></a>
-</div>
+        <!-- 3. FOTO PRINCIPAL DEBAJO -->
+        <img src="Photos/Album1/FOTO_1_15.webp" alt="Jorge Mendoza" class="hero-img">
+
+        <!-- GALERÍA OCULTA PARA LIGHTBOX -->
+        <div style="display:none;">
+            <a href="Photos/Album1/FOTO_1_2.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_3.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_4.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_5.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_6.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_7.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_8.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_9.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_10.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_11.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_12.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_13.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_14.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_15.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_16.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_17.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_18.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_20.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_21.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_22.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_23.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_24.webp" data-lightbox="galeria"></a>
+            <a href="Photos/Album1/FOTO_1_25.webp" data-lightbox="galeria"></a>
+        </div>
+
         <footer style="margin-top: 40px; color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">
             &copy; 2026 JORGE MENDOZA. ALL RIGHTS RESERVED.
         </footer>
